@@ -3905,6 +3905,11 @@ td:last-child {
   color: var(--color-text-light) !important;
 }
 
+.list_items_skills {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* ------------------------------------------------------------------- 
  * responsive:
  * about
@@ -3912,6 +3917,11 @@ td:last-child {
 @media screen and (max-width: 800px) {
   .s-about {
     padding-top: var(--vspace-5);
+  }
+
+  .list_items_skills {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
