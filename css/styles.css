@@ -3938,6 +3938,9 @@ td:last-child {
 .folio-entries {
   --width-grid-max: 1400px;
   margin-top: var(--vspace-0_5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; /* Add gap between items */
 }
 
 /* ------------------------------------------------------------------- 
@@ -3945,8 +3948,8 @@ td:last-child {
  * ------------------------------------------------------------------- */
 .folio-entries .entry {
   flex: none;
-  width: 50%;
-  margin: 0;
+  width: 48%; /* Adjusted for gap */
+  margin: 0 0 2rem 0; /* Add bottom margin for vertical spacing */
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -3955,12 +3958,19 @@ td:last-child {
 .folio-entries .entry__link {
   display: block;
   position: relative;
+  max-height: 300px; /* Added max-height to reduce image height */
+  overflow: hidden; /* Ensure content doesn't overflow */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .folio-entries .entry__link img {
   vertical-align: bottom;
   transition: all 0.3s ease-in-out;
   margin: 0;
+  width: 100%; /* Ensure image takes full width */
+  height: 300px; /* Fixed height */
+  object-fit: cover; /* Maintain aspect ratio while covering container */
 }
 
 .folio-entries .entry__link::before {
