@@ -1224,7 +1224,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: var(--font-2);
+  font-family: var(--font-1);
   font-weight: 400;
   color: var(--color-text-dark);
   font-variant-ligatures: common-ligatures;
@@ -2815,7 +2815,7 @@ td:last-child {
 }
 
 .glightbox-container .gslide-inner-content {
-  width: min(100%, 1050px);
+  width: min(80vw, 1200px);
   padding-top: 10vh;
 }
 
@@ -2866,7 +2866,7 @@ td:last-child {
 }
 
 .glightbox-container .goverlay {
-  background: #000;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .glightbox-mobile .gslide-inner-content {
@@ -2880,6 +2880,411 @@ td:last-child {
 
 .glightbox-mobile .glightbox-container .gslide-desc .desc-more {
   opacity: 1;
+}
+
+.case-modal {
+  width: 100%;
+  background: transparent;
+  color: var(--color-text);
+  border-radius: 16px;
+  padding: var(--vspace-1_5);
+  box-shadow: none;
+}
+
+.case-modal__eyebrow {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gray-15);
+  margin-bottom: var(--vspace-0_5);
+}
+
+.case-modal__title {
+  font-family: var(--font-1);
+  font-size: clamp(2.2rem, 3vw, 3.2rem);
+  margin-bottom: var(--vspace-0_5);
+}
+
+.case-modal__summary {
+  font-size: 1.7rem;
+  color: var(--color-gray-17);
+  margin-bottom: var(--vspace-1_5);
+}
+
+.case-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--vspace-1_25) var(--vspace-1_5);
+  margin-bottom: var(--vspace-1_5);
+}
+
+.case-modal__block h4 {
+  font-size: 1.6rem;
+  margin-bottom: var(--vspace-0_25);
+}
+
+.case-modal__block p,
+.case-modal__block li {
+  font-size: 1.5rem;
+  color: var(--color-gray-16);
+}
+
+.case-modal__block ul {
+  margin-left: 1.6rem;
+}
+
+.case-modal__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--vspace-1);
+}
+
+.case-modal__gallery figure {
+  margin: 0;
+}
+
+.case-modal__gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+.case-modal__gallery figcaption {
+  font-size: 1.3rem;
+  color: var(--color-gray-16);
+  margin-top: var(--vspace-0_5);
+}
+
+.telecom-study {
+  color: var(--color-text);
+}
+
+.telecom-study__kicker {
+  font-weight: 700;
+  color: var(--color-gray-15);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: var(--vspace-0_5);
+}
+
+.telecom-study__title {
+  margin-bottom: var(--vspace-0_25);
+}
+
+.telecom-study__subtitle {
+  font-size: 1.9rem;
+  color: var(--color-gray-16);
+  margin-bottom: var(--vspace-0_75);
+}
+
+.telecom-study__lead {
+  font-size: 1.6rem;
+  color: var(--color-gray-17);
+  max-width: 80ch;
+  margin-bottom: var(--vspace-1);
+}
+
+.telecom-study__meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.2rem;
+  border-top: 1px solid var(--color-gray-11);
+  border-bottom: 1px solid var(--color-gray-11);
+  padding: 1.8rem 0;
+  margin: var(--vspace-1) 0 var(--vspace-0_5);
+}
+
+.telecom-study__meta-label {
+  font-size: 1.1rem;
+  color: var(--color-gray-15);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.telecom-study__meta-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.telecom-study__note {
+  font-size: 1.2rem;
+  color: var(--color-gray-15);
+  margin-bottom: var(--vspace-1_5);
+}
+
+.telecom-study__section {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.6rem;
+  padding-top: 4.6rem;
+  margin-top: 4.6rem;
+  border-top: 1px solid var(--color-gray-11);
+}
+
+.telecom-study__secnum {
+  font-size: 2.4rem;
+  color: var(--color-gray-13);
+  font-weight: 700;
+  line-height: 1;
+  padding-top: 0.4rem;
+}
+
+.telecom-study__sectitle h4 {
+  margin: 0 0 1.2rem;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+}
+
+.telecom-study__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.telecom-study__chip {
+  background: var(--color-gray-7);
+  border: 1px solid var(--color-gray-10);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-size: 1.3rem;
+  color: var(--color-gray-17);
+  white-space: nowrap;
+}
+
+.telecom-study__card {
+  border: 1px solid var(--color-gray-10);
+  border-radius: 8px;
+  padding: 2rem;
+  background: var(--color-gray-4);
+  margin-top: 1.4rem;
+}
+
+.telecom-study__card h5 {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+}
+
+.telecom-study__card p,
+.telecom-study__card li {
+  color: var(--color-gray-16);
+  font-size: 1.4rem;
+}
+
+.telecom-study__grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.8rem;
+  margin-top: 2.6rem;
+}
+
+.telecom-study__grid2 figure {
+  width: 100%;
+  margin: 0;
+}
+
+.telecom-study__grid2 figure figcaption {
+  font-size: 1.2rem;
+  margin-top: 0.8rem;
+  color: var(--color-gray-15);
+  line-height: 1.3;
+  text-align: left;
+}
+
+.telecom-study__img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color-gray-10);
+  background: var(--color-gray-6);
+  aspect-ratio: 16 / 10;
+}
+
+.telecom-study__micro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+}
+
+.telecom-study__quote {
+  border-left: 3px solid var(--color-gray-12);
+  padding: 1rem 1.2rem;
+  color: var(--color-gray-17);
+  background: var(--color-gray-5);
+  border-radius: 4px;
+  font-size: 1.4rem;
+}
+
+.telecom-study__pairgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  margin-top: 1.8rem;
+}
+
+.telecom-study__pair {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-gray-9);
+}
+
+.telecom-study__pair-title {
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gray-15);
+  margin: 0 0 0.6rem;
+}
+
+.telecom-study__pair-text {
+  margin: 0;
+  color: var(--color-gray-16);
+  font-size: 1.4rem;
+}
+
+.telecom-study__twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2rem;
+  margin-top: 1.8rem;
+}
+
+.telecom-study__footer {
+  margin-top: 2.6rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-gray-11);
+  color: var(--color-gray-16);
+  font-size: 1.3rem;
+}
+
+@media (max-width: 900px) {
+  .telecom-study__meta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .telecom-study__grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  .telecom-study__twocol,
+  .telecom-study__pairgrid,
+  .telecom-study__micro {
+    grid-template-columns: 1fr;
+  }
+
+  .telecom-study__section {
+    grid-template-columns: 60px 1fr;
+    gap: 1.2rem;
+  }
+
+  .telecom-study__secnum {
+    font-size: 2rem;
+  }
+}
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-modal.is-open {
+  display: block;
+  opacity: 1;
+}
+
+.project-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-modal__dialog {
+  position: relative;
+  width: min(80vw, 1200px);
+  max-height: 85vh;
+  margin: 7vh auto 0;
+  z-index: 1;
+  overflow: auto;
+  border-radius: 16px;
+  background: var(--color-white);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  transform: translateY(24px) scale(0.98);
+  opacity: 0;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.project-modal.is-open .project-modal__overlay {
+  opacity: 1;
+}
+
+.project-modal.is-open .project-modal__dialog {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.project-modal__content {
+  background: transparent;
+}
+
+.project-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.project-modal__close::before {
+  content: "×";
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 1;
+  color: #000;
+}
+
+.project-modal__close:focus {
+  outline: none;
+}
+
+body.modal-is-open {
+  overflow: hidden;
+}
+
+@media (max-width: 800px) {
+  .case-modal {
+    padding: var(--vspace-1);
+  }
+
+  .case-modal__grid,
+  .case-modal__gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ------------------------------------------------------------------- 
@@ -3021,9 +3426,11 @@ td:last-child {
   --header-height: 72px;
   --logo-width: 10.2rem;
   --width-grid-max: calc(var(--width-sixteen-cols) - calc(var(--gutter) * 2));
-  --box-shadow: 0 1px 1px rgba(0, 0, 0, 0.02), 0 2px 2px rgba(0, 0, 0, 0.02),
+  --box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.02), 0 2px 2px rgba(0, 0, 0, 0.02),
     0 4px 4px rgba(0, 0, 0, 0.02), 0 8px 8px rgba(0, 0, 0, 0.02);
-  --box-shadow-2: 0 2px 2px rgba(0, 0, 0, 0.03), 0 4px 4px rgba(0, 0, 0, 0.03),
+  --box-shadow-2:
+    0 2px 2px rgba(0, 0, 0, 0.03), 0 4px 4px rgba(0, 0, 0, 0.03),
     0 8px 8px rgba(0, 0, 0, 0.03), 0 16px 16px rgba(0, 0, 0, 0.03);
   z-index: 100;
   background-color: transparent;
@@ -3988,7 +4395,8 @@ td:last-child {
   position: relative;
   overflow: hidden;
   border-radius: 16px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin: 0;
@@ -4003,7 +4411,9 @@ td:last-child {
   height: 300px;
   overflow: hidden;
   border-radius: 16px;
-  box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.15), 4px 6px 12px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    8px 12px 25px rgba(0, 0, 0, 0.15),
+    4px 6px 12px rgba(0, 0, 0, 0.1),
     0 2px 4px rgba(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin: 0;
@@ -4059,7 +4469,9 @@ td:last-child {
   background-color: var(--color-text-dark);
   width: 100%;
   height: 100%;
-  transition: all, 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition:
+    all,
+    0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -4106,14 +4518,17 @@ td:last-child {
  */
 .folio-entries .entry:hover {
   transform: translateY(-12px);
-  box-shadow: 12px 20px 40px rgba(0, 0, 0, 0.25),
+  box-shadow:
+    12px 20px 40px rgba(0, 0, 0, 0.25),
     6px 10px 20px rgba(0, 0, 0, 0.15);
   opacity: 0.85;
 }
 
 .folio-entries .entry:hover .entry__link {
-  box-shadow: 16px 24px 50px rgba(0, 0, 0, 0.3),
-    8px 12px 25px rgba(0, 0, 0, 0.2), 4px 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    16px 24px 50px rgba(0, 0, 0, 0.3),
+    8px 12px 25px rgba(0, 0, 0, 0.2),
+    4px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .folio-entries .entry:hover .entry__link::before {
@@ -4271,14 +4686,17 @@ td:last-child {
 
   .folio-entries .entry:hover {
     transform: translateY(-6px);
-    box-shadow: 8px 15px 30px rgba(0, 0, 0, 0.2),
+    box-shadow:
+      8px 15px 30px rgba(0, 0, 0, 0.2),
       4px 8px 15px rgba(0, 0, 0, 0.12);
     opacity: 0.85;
   }
 
   .folio-entries .entry:hover .entry__link {
-    box-shadow: 12px 18px 35px rgba(0, 0, 0, 0.25),
-      6px 9px 18px rgba(0, 0, 0, 0.15), 2px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      12px 18px 35px rgba(0, 0, 0, 0.25),
+      6px 9px 18px rgba(0, 0, 0, 0.15),
+      2px 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -4475,8 +4893,8 @@ td:last-child {
   position: absolute;
   bottom: calc(var(--bottom-padding) - var(--vspace-0_5));
   right: calc(
-    var(--gutter) + var(--vspace-0_75) - var(--width-label) - var(--vspace-1_75) -
-      var(--vspace-0_75)
+    var(--gutter) + var(--vspace-0_75) - var(--width-label) -
+      var(--vspace-1_75) - var(--vspace-0_75)
   );
   transform: rotate(-90deg);
   transform-origin: left bottom;
