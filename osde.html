@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>OSDE Digital Directory - Florencia Manara</title>
+    <title>OSDE Cartilla Digital - Florencia Manara</title>
 
     <script>
       document.documentElement.classList.remove("no-js");
@@ -12,13 +12,398 @@
 
     <link rel="stylesheet" href="css/vendor.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="manifest" href="site.webmanifest" />
+
+    <style>
+      :root {
+        --osde-blue: #1428bf;
+        --osde-ink: #20242a;
+        --osde-soft: #f6f7fb;
+        --osde-line: #e3e6f2;
+      }
+
+      body.osde-page {
+        background: #fff;
+        color: var(--osde-ink);
+      }
+
+      .osde-case {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 140px 24px 80px;
+      }
+
+      .osde-kicker {
+        color: var(--osde-blue);
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+        margin-bottom: 16px;
+      }
+
+      .osde-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.75fr);
+        gap: 56px;
+        align-items: center;
+        margin-bottom: 72px;
+      }
+
+      .osde-title {
+        font-size: clamp(4rem, 7vw, 8rem);
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+        margin: 0 0 24px;
+      }
+
+      .osde-lead {
+        font-size: 2rem;
+        line-height: 1.55;
+        color: #4c515c;
+        max-width: 720px;
+      }
+
+      .osde-meta {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 36px;
+        border-top: 1px solid var(--osde-line);
+        border-bottom: 1px solid var(--osde-line);
+        padding: 22px 0;
+      }
+
+      .osde-meta span {
+        display: block;
+        font-size: 1.05rem;
+        color: #747986;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 6px;
+        font-weight: 700;
+      }
+
+      .osde-meta strong {
+        font-size: 1.45rem;
+        line-height: 1.3;
+      }
+
+      .osde-section {
+        padding: 56px 0;
+        border-top: 1px solid var(--osde-line);
+      }
+
+      .osde-two {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+        gap: 56px;
+        align-items: start;
+      }
+
+      .osde-section h2 {
+        font-size: clamp(3rem, 4vw, 4.6rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        margin: 0 0 18px;
+      }
+
+      .osde-section p {
+        color: #4c515c;
+        font-size: 1.65rem;
+        line-height: 1.7;
+        margin-bottom: 18px;
+      }
+
+      .osde-note {
+        background: var(--osde-soft);
+        border: 1px solid var(--osde-line);
+        border-radius: 20px;
+        padding: 28px;
+      }
+
+      .osde-note p {
+        margin: 0;
+        color: #353943;
+      }
+
+      .osde-cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 24px;
+      }
+
+      .osde-card {
+        border: 1px solid var(--osde-line);
+        border-radius: 18px;
+        padding: 24px;
+        background: #fff;
+      }
+
+      .osde-card b {
+        display: block;
+        font-size: 1.55rem;
+        margin-bottom: 10px;
+      }
+
+      .osde-card ul {
+        margin: 0;
+        padding-left: 18px;
+        color: #525866;
+        font-size: 1.45rem;
+        line-height: 1.7;
+      }
+
+      .osde-flow {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(170px, 1fr));
+        gap: 18px;
+        margin-top: 28px;
+        align-items: start;
+      }
+
+      .osde-flow-step {
+        text-align: center;
+      }
+
+      .osde-step-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--osde-blue);
+        margin-bottom: 12px;
+      }
+
+      .osde-step-label span {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--osde-blue);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+      }
+
+      .phone {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+        border: 1px solid #d8dce8;
+        border-radius: 24px;
+        padding: 16px;
+        box-shadow: 0 16px 40px rgba(20, 40, 191, 0.08);
+        background: #fff;
+        text-align: left;
+        min-height: 420px;
+      }
+
+      .phone.small {
+        min-height: 380px;
+      }
+
+      .phone-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--osde-blue);
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+        border-bottom: 3px solid var(--osde-blue);
+        padding-bottom: 12px;
+      }
+
+      .phone-title {
+        font-size: 2.2rem;
+        line-height: 1.1;
+        font-weight: 800;
+        margin: 18px 0 14px;
+      }
+
+      .phone-sub {
+        font-size: 1.35rem;
+        color: #5a6070;
+        line-height: 1.35;
+        margin-bottom: 16px;
+      }
+
+      .plans {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+      }
+
+      .plan {
+        border: 2px solid #d2d4dc;
+        border-radius: 8px;
+        padding: 9px 12px;
+        font-size: 1.35rem;
+        font-weight: 800;
+      }
+
+      .plan.active {
+        background: var(--osde-blue);
+        color: #fff;
+        border-color: var(--osde-blue);
+      }
+
+      .input {
+        border: 2px solid #1f2329;
+        border-radius: 16px;
+        padding: 12px 14px;
+        margin: 12px 0;
+        font-size: 1.35rem;
+        color: #2b3038;
+      }
+
+      .input span {
+        display: block;
+        color: #777d89;
+        font-size: 1.05rem;
+      }
+
+      .button {
+        background: var(--osde-blue);
+        color: #fff;
+        text-align: center;
+        padding: 14px;
+        border-radius: 16px;
+        margin-top: 36px;
+        font-size: 1.35rem;
+        font-weight: 800;
+      }
+
+      .list-item {
+        border-bottom: 1px solid var(--osde-line);
+        padding: 14px 0;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .result-title {
+        font-size: 2.2rem;
+        line-height: 1.1;
+        font-weight: 800;
+        margin: 18px 0 10px;
+      }
+
+      .filter {
+        display: flex;
+        justify-content: space-between;
+        margin: 18px 0;
+        font-size: 1.25rem;
+        color: var(--osde-blue);
+        font-weight: 700;
+      }
+
+      .doctor-card {
+        background: #eef0ff;
+        border-radius: 18px;
+        padding: 16px;
+        margin-top: 16px;
+      }
+
+      .doctor-card h4 {
+        font-size: 1.55rem;
+        margin: 0 0 4px;
+      }
+
+      .doctor-card p {
+        font-size: 1.15rem;
+        line-height: 1.45;
+        margin: 0 0 8px;
+        color: #4b5160;
+      }
+
+      .process {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .process-item {
+        border: 1px solid var(--osde-line);
+        border-radius: 999px;
+        padding: 16px 12px;
+        text-align: center;
+        background: #fff;
+        font-weight: 800;
+        color: #313640;
+        font-size: 1.25rem;
+      }
+
+      .process-item span {
+        display: block;
+        color: var(--osde-blue);
+        font-size: 1.8rem;
+        margin-bottom: 4px;
+      }
+
+      .osde-back {
+        text-align: center;
+        padding: 40px 0 0;
+      }
+
+      @media (max-width: 900px) {
+        .osde-case {
+          padding-top: 110px;
+        }
+
+        .osde-hero,
+        .osde-two {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .osde-meta {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .osde-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .osde-flow {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .process {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .osde-title {
+          font-size: 4.6rem;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .osde-meta,
+        .osde-flow,
+        .process {
+          grid-template-columns: 1fr;
+        }
+
+        .phone {
+          max-width: 100%;
+        }
+
+        .osde-section {
+          padding: 42px 0;
+        }
+      }
+    </style>
   </head>
 
-  <body id="top" class="ss-show">
+  <body id="top" class="ss-show osde-page">
     <div id="preloader" style="display: none">
       <div id="loader" class="dots-fade">
         <div></div>
@@ -46,123 +431,272 @@
         </div>
       </header>
 
-      <section class="s-about target-section" style="padding-top: 120px">
-        <div
-          class="case-modal"
-          style="
-            display: block;
-            position: static;
-            background: transparent;
-            padding-left: 24px;
-            padding-right: 24px;
-            max-width: 1040px;
-            margin: 0 auto;
-          "
-        >
-          <div class="case-modal__header">
-            <p class="case-modal__eyebrow">OSDE · Cartilla Digital</p>
-            <h3 class="case-modal__title">Evolucionar la busqueda de prestadores</h3>
-            <p class="case-modal__summary">
-              Un caso de UX centrado en simplificar la busqueda dentro de la
-              Cartilla Digital, combinando investigacion, pruebas con usuarios,
-              arquitectura de informacion e iteraciones posteriores al
-              lanzamiento.
+      <main class="osde-case">
+        <section class="osde-hero">
+          <div>
+            <p class="osde-kicker">OSDE · Cartilla Digital</p>
+            <h1 class="osde-title">Evolucionando la experiencia de búsqueda</h1>
+            <p class="osde-lead">
+              Investigación y diseño UX para simplificar la búsqueda de profesionales y servicios de salud dentro de uno de los principales canales de autogestión de OSDE.
+            </p>
+
+            <div class="osde-meta">
+              <div>
+                <span>Rol</span>
+                <strong>UX Research & UX Designer</strong>
+              </div>
+              <div>
+                <span>Duración</span>
+                <strong>+1 año</strong>
+              </div>
+              <div>
+                <span>Equipo</span>
+                <strong>UX · UI · Desarrollo · Stakeholders</strong>
+              </div>
+              <div>
+                <span>Cliente</span>
+                <strong>OSDE</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone">
+            <div class="phone-top">
+              <span>☰</span>
+              <span>osde</span>
+              <span></span>
+            </div>
+            <div class="result-title">30 Resultados encontrados</div>
+            <p class="phone-sub">Para el plan 210</p>
+            <div class="input">
+              <span>¿Cerca de?</span>
+              La Matanza, Provincia de Buenos Aires
+            </div>
+            <div class="input">
+              <span>¿Qué estás buscando?</span>
+              Odontología general
+            </div>
+            <div class="filter">
+              <span>Ordenar y filtrar</span>
+              <span>Ver en el mapa</span>
+            </div>
+            <h3 style="font-size: 2rem; margin: 0 0 8px">
+              Con agenda digital (1)
+            </h3>
+            <div class="doctor-card">
+              <h4>Dr. Cardozo, Horacio Sergio</h4>
+              <p>Odontología general</p>
+              <p>Almafuerte 2964 1° · 0.12 km</p>
+              <p><u>Ver detalle</u></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="osde-section osde-two">
+          <div>
+            <h2>El proyecto</h2>
+          </div>
+          <div>
+            <p>
+              La Cartilla Digital es una de las principales herramientas de autogestión de OSDE. Permite a los socios encontrar profesionales, centros médicos, farmacias y otros servicios según su plan y ubicación.
+            </p>
+            <p>
+              Durante más de un año formé parte del equipo de UX, participando en distintas iniciativas orientadas a mejorar la experiencia del producto. Mi trabajo estuvo enfocado en investigar, diseñar y validar soluciones junto al equipo para hacer la experiencia más simple y fácil de usar.
             </p>
           </div>
+        </section>
 
-          <div class="case-modal__grid">
-            <div class="case-modal__block">
-              <h4>Rol</h4>
-              <p>
-                Participacion dentro del equipo de UX en investigacion,
-                entrevistas, pruebas de usabilidad, wireframes, analisis
-                heuristico y trabajo junto al equipo UI.
-              </p>
+        <section class="osde-section">
+          <h2>Mi aporte</h2>
+          <div class="osde-cards">
+            <div class="osde-card">
+              <b>Investigación</b>
+              <ul>
+                <li>Entrevistas moderadas</li>
+                <li>Pruebas de usabilidad</li>
+                <li>Análisis heurísticos</li>
+              </ul>
             </div>
-
-            <div class="case-modal__block">
-              <h4>Desafio</h4>
-              <p>
-                La busqueda necesitaba evolucionar para ser mas simple,
-                incorporar busqueda por nombre y mejorar la navegacion por
-                categorias y especialidades.
-              </p>
+            <div class="osde-card">
+              <b>Diseño UX</b>
+              <ul>
+                <li>Arquitectura de información</li>
+                <li>Flujos</li>
+                <li>Wireframes y prototipos</li>
+              </ul>
             </div>
-
-            <div class="case-modal__block">
-              <h4>Proceso</h4>
-              <p>
-                Antes de implementar se realizaron investigaciones, entrevistas
-                y pruebas de usabilidad. La segunda propuesta fue iterada y
-                termino siendo la base de la version implementada.
-              </p>
+            <div class="osde-card">
+              <b>Validación</b>
+              <ul>
+                <li>Analytics</li>
+                <li>Hotjar</li>
+                <li>Iteración junto al equipo</li>
+              </ul>
             </div>
+          </div>
+        </section>
 
-            <div class="case-modal__block">
-              <h4>Despues del lanzamiento</h4>
+        <section class="osde-section">
+          <div class="osde-two">
+            <div>
+              <h2>El desafío</h2>
+            </div>
+            <div>
               <p>
-                La nueva cartilla convivio con la anterior mientras se invitaba
-                progresivamente a usuarios reales y se analizaban Analytics,
-                Hotjar, grabaciones de sesiones y encuestas.
+                La búsqueda era uno de los recorridos más importantes dentro de la Cartilla Digital. El objetivo no era hacer un rediseño completo, sino mejorar una experiencia que ya estaba siendo utilizada por miles de personas.
+              </p>
+              <p>
+                Trabajamos en la evolución del flujo de búsqueda para que los usuarios pudieran encontrar profesionales y servicios de una forma más simple, incorporando nuevas alternativas de búsqueda y validando cada decisión antes de implementarla.
               </p>
             </div>
           </div>
 
-          <div class="case-modal__gallery">
-            <figure>
-              <img
-                src="images/folio/gallery/g-osde-1.webp"
-                alt="Pantallas de la Cartilla Digital de OSDE"
-                loading="lazy"
-              />
-              <figcaption>
-                Evolucion visual de la experiencia de busqueda en la cartilla.
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="images/folio/gallery/g-osde-2.webp"
-                alt="Flujo de busqueda por nombre en OSDE"
-                loading="lazy"
-              />
-              <figcaption>
-                Incorporacion de busqueda por nombre para encontrar prestadores.
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="images/folio/gallery/g-osde-3.webp"
-                alt="Busqueda por categorias y especialidades en OSDE"
-                loading="lazy"
-              />
-              <figcaption>
-                Mejora de categorias y especialidades para orientar la busqueda.
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="images/folio/gallery/g-osde-4.webp"
-                alt="Resultados de profesionales en la Cartilla Digital"
-                loading="lazy"
-              />
-              <figcaption>
-                Iteraciones sobre resultados y seleccion de profesionales.
-              </figcaption>
-            </figure>
+          <div class="osde-flow">
+            <div class="osde-flow-step">
+              <div class="osde-step-label"><span>1</span>Elegir plan</div>
+              <div class="phone small">
+                <div class="phone-top">
+                  <span>☰</span>
+                  <span>osde</span>
+                  <span></span>
+                </div>
+                <div class="phone-title">Buscá en la Cartilla</div>
+                <p class="phone-sub">¿Para qué plan?</p>
+                <div class="plans">
+                  <div class="plan active">210</div>
+                  <div class="plan">310</div>
+                  <div class="plan">410</div>
+                </div>
+                <div class="input">
+                  <span>¿Cerca de?</span>
+                  Dirección, barrio, ciudad
+                </div>
+              </div>
+            </div>
+
+            <div class="osde-flow-step">
+              <div class="osde-step-label"><span>2</span>Ubicación</div>
+              <div class="phone small">
+                <div class="phone-title">Buscá en la Cartilla</div>
+                <p class="phone-sub">Para el plan 210</p>
+                <div class="input">
+                  <span>¿Cerca de?</span>
+                  Mi ubicación
+                </div>
+                <div class="button">Continuar</div>
+              </div>
+            </div>
+
+            <div class="osde-flow-step">
+              <div class="osde-step-label"><span>3</span>Qué buscás</div>
+              <div class="phone small">
+                <div class="phone-title">¿Qué estás buscando?</div>
+                <p class="phone-sub">
+                  Para el plan 210<br />
+                  Cerca de tu ubicación
+                </p>
+                <div class="list-item">Especialidades médicas ›</div>
+                <div class="list-item">Servicios de guardia ›</div>
+                <div class="list-item">Sanatorios para internación ›</div>
+                <div class="list-item">Estudios y tratamientos ›</div>
+                <div class="list-item">Farmacias ›</div>
+              </div>
+            </div>
+
+            <div class="osde-flow-step">
+              <div class="osde-step-label"><span>4</span>Resultados</div>
+              <div class="phone small">
+                <div class="result-title">30 Resultados encontrados</div>
+                <div class="input">
+                  <span>¿Cerca de?</span>
+                  La Matanza
+                </div>
+                <div class="input">
+                  <span>¿Qué estás buscando?</span>
+                  Odontología general
+                </div>
+                <div class="doctor-card">
+                  <h4>Dr. Cardozo</h4>
+                  <p>Odontología general</p>
+                  <p><u>Ver detalle</u></p>
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
+
+        <section class="osde-section osde-two">
+          <div>
+            <h2>La evolución de la búsqueda</h2>
+          </div>
+          <div>
+            <p>
+              Participé en la investigación y evolución de una nueva experiencia de búsqueda para la Cartilla Digital.
+            </p>
+            <p>
+              A partir de entrevistas, pruebas de usabilidad y distintas iteraciones fuimos validando nuevas formas de encontrar profesionales, incorporando búsquedas por nombre, categorías y especialidades, además de filtros relacionados con el plan y la ubicación del usuario.
+            </p>
+
+            <div class="osde-cards" style="grid-template-columns: 1fr 1fr; margin-top: 24px">
+              <div class="osde-card">
+                <b>Por nombre</b>
+                <p>
+                  Una forma más directa de encontrar a un profesional recomendado o conocido por el usuario.
+                </p>
+              </div>
+              <div class="osde-card">
+                <b>Por categorías</b>
+                <p>
+                  Una entrada más guiada para quienes buscan por especialidad, servicio o tipo de atención.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="osde-section">
+          <div class="osde-two">
+            <div>
+              <h2>Un producto en evolución constante</h2>
+            </div>
+            <div>
+              <p>
+                El proyecto no terminaba cuando una funcionalidad estaba diseñada. Cada propuesta se validaba con usuarios antes de avanzar y, una vez implementada, seguíamos analizando su desempeño mediante Analytics, Hotjar y nuevas investigaciones.
+              </p>
+              <p>
+                Trabajar sobre un producto en producción nos permitió combinar investigación cualitativa con datos reales de uso y tomar decisiones respaldadas por evidencia durante todo el proceso.
+              </p>
+            </div>
+          </div>
+
+          <div class="process">
+            <div class="process-item"><span>01</span>Hipótesis</div>
+            <div class="process-item"><span>02</span>Investigación</div>
+            <div class="process-item"><span>03</span>Diseño</div>
+            <div class="process-item"><span>04</span>Lanzamiento</div>
+            <div class="process-item"><span>05</span>Medición</div>
+            <div class="process-item"><span>06</span>Iteración</div>
+          </div>
+        </section>
+
+        <section class="osde-section osde-two">
+          <div>
+            <h2>Lo que me dejó este proyecto</h2>
+          </div>
+          <div class="osde-note">
+            <p>
+              Fue uno de los primeros proyectos en los que entendí que el diseño no termina cuando una funcionalidad sale a producción. Muchas de las decisiones más valiosas surgieron después del lanzamiento, combinando entrevistas, pruebas de usabilidad, Analytics y Hotjar para seguir entendiendo cómo las personas utilizaban el producto y qué oportunidades de mejora aparecían con el uso real.
+            </p>
+          </div>
+        </section>
+
+        <div class="osde-back">
+          <a href="index.html#works" class="btn btn--stroke btn--large">Go Back</a>
         </div>
+      </main>
 
-        <div class="row" style="margin-top: 60px">
-          <div class="column xl-12" style="text-align: center">
-            <a href="index.html#works" class="btn btn--stroke btn--large"
-              >Go Back</a
-            >
-          </div>
-        </div>
-      </section>
+      <script src="js/plugins.js"></script>
+      <script src="js/main.js"></script>
     </div>
-
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
   </body>
 </html>
