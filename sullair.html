@@ -1,309 +1,290 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="es" class="no-js">
   <head>
-    <!--- basic page needs
-    ================================================== -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sullair Logistics Platform - Florencia Manara</title>
-
+    <meta name="description" content="Caso de estudio UX sobre una propuesta de diseño para el proceso interno de facturación de Sullair Argentina." />
+    <title>Facturación interna en Sullair — Caso UX | Florencia Manara</title>
     <script>
       document.documentElement.classList.remove("no-js");
       document.documentElement.classList.add("js");
     </script>
-
-    <!-- CSS
-    ================================================== -->
     <link rel="stylesheet" href="css/vendor.css" />
     <link rel="stylesheet" href="css/styles.css" />
-
-    <!-- favicons
-    ================================================== -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
+    <style>
+      :root {
+        --case-ink: #14231d;
+        --case-muted: #5c6863;
+        --case-line: #dce5e0;
+        --case-soft: #f3f7f5;
+        --case-accent: #008b59;
+        --case-accent-dark: #005b3d;
+        --case-highlight: #d9f4e7;
+      }
+      html { scroll-behavior: smooth; }
+      body { background: #fff; color: var(--case-ink); }
+      .case-skip {
+        position: fixed; left: 16px; top: -80px; z-index: 9999;
+        padding: 10px 16px; border-radius: 999px;
+        background: var(--case-ink); color: #fff; transition: top .2s ease;
+      }
+      .case-skip:focus { top: 16px; }
+      .case-page { max-width: 1180px; margin: 0 auto; padding: 15rem 3.2rem 10rem; }
+      .case-hero { padding-bottom: 7rem; border-bottom: 1px solid var(--case-line); }
+      .case-hero__intro {
+        display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+        gap: 6rem; align-items: end; padding-bottom: 7rem;
+      }
+      .case-eyebrow {
+        margin: 0 0 1.6rem; color: var(--case-accent);
+        font-size: 1.3rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      }
+      .case-title {
+        max-width: 14ch; margin: 0; font-size: clamp(4.8rem, 7vw, 7.4rem);
+        line-height: 1; letter-spacing: -.05em;
+      }
+      .case-deck {
+        max-width: 56ch; margin: 2.8rem 0 0; color: var(--case-muted);
+        font-size: clamp(1.9rem, 2.3vw, 2.6rem); line-height: 1.45;
+      }
+      .case-brand {
+        display: grid; min-height: 33rem; place-items: center; overflow: hidden;
+        border-radius: 2.8rem; background: #00aa67;
+      }
+      .case-brand img { width: 100%; height: 100%; margin: 0; object-fit: cover; }
+      .case-summary { padding-top: 3rem; border-top: 1px solid var(--case-line); }
+      .case-summary dl {
+        display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin: 0;
+      }
+      .case-summary div + div { padding-left: 2rem; border-left: 1px solid var(--case-line); }
+      .case-summary dt {
+        color: var(--case-muted); font-size: 1.2rem; font-weight: 700;
+        letter-spacing: .08em; text-transform: uppercase;
+      }
+      .case-summary dd { margin: .5rem 0 0; font-size: 1.55rem; font-weight: 600; }
+      .case-section {
+        display: grid; grid-template-columns: 19rem minmax(0, 1fr);
+        gap: 6rem; padding-top: 10rem; scroll-margin-top: 14rem;
+      }
+      .case-section__label {
+        margin: 0; color: var(--case-accent); font-size: 1.3rem;
+        font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      }
+      .case-section h2 {
+        max-width: 19ch; margin: 0 0 2.4rem; font-size: clamp(3.4rem, 5vw, 5.6rem);
+        line-height: 1.04; letter-spacing: -.045em;
+      }
+      .case-section h3 { margin: 0 0 1rem; font-size: 2.1rem; letter-spacing: -.02em; }
+      .case-section p, .case-section li { color: var(--case-muted); font-size: 1.7rem; line-height: 1.7; }
+      .case-section p { max-width: 68ch; }
+      .case-question {
+        max-width: 34ch; margin: 3rem 0 0; padding-left: 2.4rem;
+        border-left: 5px solid var(--case-accent); color: var(--case-ink) !important;
+        font-size: clamp(2.2rem, 3vw, 3.2rem) !important; font-weight: 650; line-height: 1.4 !important;
+      }
+      .case-grid {
+        display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem; margin-top: 3.2rem;
+      }
+      .case-card {
+        padding: 2.6rem; border: 1px solid var(--case-line);
+        border-radius: 2rem; background: #fff;
+      }
+      .case-card--soft { background: var(--case-soft); }
+      .case-card p:last-child, .case-card ul:last-child { margin-bottom: 0; }
+      .case-step { display: grid; grid-template-columns: 5.2rem 1fr; gap: 1.6rem; }
+      .case-step__number {
+        display: grid; width: 5.2rem; height: 5.2rem; place-items: center;
+        border-radius: 50%; background: var(--case-accent); color: #fff;
+        font-size: 1.5rem; font-weight: 700;
+      }
+      .case-decision::before {
+        content: ""; display: block; width: 4rem; height: .6rem; margin-bottom: 2rem;
+        border-radius: 999px; background: var(--case-highlight);
+      }
+      .case-outcome { padding: 4rem; border-radius: 2.8rem; background: var(--case-soft); }
+      .case-outcome .case-card { background: #fff; }
+      .case-note {
+        margin-top: 3.2rem; padding: 2.4rem; border: 1px solid var(--case-line);
+        border-radius: 1.6rem; background: #fff;
+      }
+      .case-note strong { color: var(--case-accent-dark); }
+      .case-next { margin-top: 10rem; padding-top: 4rem; border-top: 1px solid var(--case-line); text-align: center; }
+      .case-next p { color: var(--case-muted); }
+      .case-next .btn { margin: .8rem; }
+      @media (max-width: 900px) {
+        .case-page { padding-top: 12rem; }
+        .case-hero__intro { grid-template-columns: 1fr; gap: 4rem; }
+        .case-brand { min-height: 24rem; }
+        .case-summary dl { grid-template-columns: 1fr 1fr; }
+        .case-summary div:nth-child(3) { padding-left: 0; border-left: 0; }
+        .case-section { grid-template-columns: 1fr; gap: 1.4rem; padding-top: 8rem; }
+      }
+      @media (max-width: 600px) {
+        .case-page { padding-right: 2rem; padding-left: 2rem; }
+        .case-title { font-size: 4.7rem; }
+        .case-brand { min-height: 18rem; border-radius: 2rem; }
+        .case-summary dl, .case-grid { grid-template-columns: 1fr; }
+        .case-summary div + div, .case-summary div:nth-child(3) {
+          padding-top: 1.6rem; padding-left: 0;
+          border-top: 1px solid var(--case-line); border-left: 0;
+        }
+        .case-outcome { padding: 3rem 2.2rem; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
   </head>
-
   <body id="top" class="ss-show">
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader" style="display: none">
-      <div id="loader" class="dots-fade">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-
-    <!-- page wrap
-    ================================================== -->
+    <a class="case-skip" href="#contenido">Saltar al contenido</a>
     <div id="page" class="s-pagewrap">
-      <!-- # site header 
-        ================================================== -->
       <header class="s-header">
         <div class="row s-header__inner">
           <div class="s-header__block">
             <div class="s-header__logo"></div>
-
-            <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+            <a class="s-header__menu-toggle" href="#0" aria-label="Abrir menú de navegación"><span>Menú</span></a>
           </div>
-          <!-- end s-header__block -->
-
-          <nav class="s-header__nav">
+          <nav class="s-header__nav" aria-label="Navegación principal">
             <ul class="s-header__menu-links">
-              <li>
-                <a href="index.html#intro">Intro</a>
-              </li>
-              <li><a href="index.html#about">About</a></li>
-              <li class="current"><a href="index.html#works">Works</a></li>
-              <li><a href="index.html#footer">Contact</a></li>
+              <li><a href="index.html#intro">Inicio</a></li>
+              <li><a href="index.html#about">Sobre mí</a></li>
+              <li class="current"><a href="index.html#works" aria-current="page">Proyectos</a></li>
+              <li><a href="index.html#footer">Contacto</a></li>
             </ul>
-            <!-- s-header__menu-links -->
           </nav>
-          <!-- end s-header__nav -->
         </div>
-        <!-- end s-header__inner -->
       </header>
-      <!-- end s-header -->
 
-      <!-- case study
-        ================================================== -->
-      <section class="s-about target-section" style="padding-top: 120px">
-        <div
-          class="case-modal"
-          style="
-            display: block;
-            position: static;
-            background: transparent;
-            padding-left: 24px;
-            padding-right: 24px;
-            max-width: 1040px;
-            margin: 0 auto;
-          "
-        >
-          <div class="case-modal__header">
-            <p class="case-modal__eyebrow">Sullair Argentina · Logistics</p>
-            <h3 class="case-modal__title">Sullair Logistics Platform</h3>
-            <p class="case-modal__summary">
-              We turned a spreadsheet-heavy operation into a single, traceable
-              workflow that connects internal teams with carriers. The focus was
-              clarity, speed, and fewer manual handoffs across logistics and
-              administration.
+      <main id="contenido" class="case-page">
+        <section class="case-hero" aria-labelledby="case-title">
+          <div class="case-hero__intro">
+            <div>
+              <p class="case-eyebrow">Sullair Argentina · UX/UI</p>
+              <h1 id="case-title" class="case-title">Ordenar un proceso de facturación fragmentado</h1>
+              <p class="case-deck">
+                Una propuesta de diseño para reunir información dispersa, reducir tareas manuales y dar mayor claridad al seguimiento de un proceso interno complejo.
+              </p>
+            </div>
+            <figure class="case-brand">
+              <img src="images/folio/sullair.png" alt="Identidad visual de Sullair Argentina" width="750" height="750" />
+            </figure>
+          </div>
+          <aside class="case-summary" aria-label="Ficha del proyecto">
+            <dl>
+              <div><dt>Rol</dt><dd>UX Designer</dd></div>
+              <div><dt>Duración</dt><dd>20 semanas</dd></div>
+              <div><dt>Equipo</dt><dd>UX · UI · Desarrollo</dd></div>
+              <div><dt>Entrega</dt><dd>Propuesta final de diseño</dd></div>
+            </dl>
+          </aside>
+        </section>
+
+        <section id="desafio" class="case-section">
+          <p class="case-section__label">01 · El proyecto</p>
+          <div>
+            <h2>La información estaba repartida entre correos y planillas.</h2>
+            <p>
+              El proceso de facturación se sostenía con intercambios por email y archivos separados. Esa fragmentación obligaba a repetir tareas, dificultaba seguir el estado de cada gestión y hacía más costoso reconstruir qué había pasado.
+            </p>
+            <p class="case-question">¿Cómo transformar ese recorrido en una experiencia más clara, ordenada y fácil de seguir?</p>
+            <div class="case-grid">
+              <article class="case-card case-card--soft">
+                <h3>Problema de usuario</h3>
+                <p>Encontrar la información necesaria y entender el estado de una gestión sin depender de múltiples intercambios.</p>
+              </article>
+              <article class="case-card case-card--soft">
+                <h3>Objetivo del proyecto</h3>
+                <p>Diseñar una propuesta que centralizara el proceso y redujera la carga manual, sin perder trazabilidad.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="participacion" class="case-section">
+          <p class="case-section__label">02 · Mi participación</p>
+          <div>
+            <h2>Participé desde el entendimiento del problema hasta el diseño final.</h2>
+            <p>
+              Como UX Designer, formé parte de un equipo con perfiles de UX, UI y Desarrollo. Mi trabajo se enfocó en comprender el proceso, ordenar la información y traducir esa complejidad en flujos y pantallas que pudieran discutirse y evolucionar con el equipo.
+            </p>
+            <div class="case-grid">
+              <article class="case-card"><h3>Investigación y definición</h3><p>Benchmark, relevamiento del proceso, organización de necesidades y construcción de historias de usuario.</p></article>
+              <article class="case-card"><h3>Diseño de la experiencia</h3><p>Taskflows, wireframes de baja y alta fidelidad, moodboard visual y propuesta final de diseño.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="enfoque" class="case-section">
+          <p class="case-section__label">03 · Cómo lo trabajamos</p>
+          <div>
+            <h2>Avanzar por capas para hacer visible la complejidad.</h2>
+            <p>
+              El trabajo se organizó como una secuencia: entender el contexto, representar el recorrido, probar su estructura y recién después consolidar el lenguaje visual.
+            </p>
+            <div class="case-grid">
+              <article class="case-card"><div class="case-step"><span class="case-step__number">01</span><div><h3>Relevar</h3><p>Revisamos referencias y ordenamos la información disponible para delimitar el problema.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">02</span><div><h3>Estructurar</h3><p>Las historias de usuario y los taskflows permitieron representar acciones, dependencias y estados.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">03</span><div><h3>Explorar</h3><p>Los wireframes de baja fidelidad ayudaron a trabajar jerarquía y recorrido antes de definir la interfaz.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">04</span><div><h3>Consolidar</h3><p>El moodboard y los wireframes de alta fidelidad llevaron la solución hasta una propuesta final de diseño.</p></div></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="decisiones" class="case-section">
+          <p class="case-section__label">04 · Decisiones de diseño</p>
+          <div>
+            <h2>El foco estuvo en ordenar, guiar y hacer seguimiento.</h2>
+            <div class="case-grid">
+              <article class="case-card case-decision"><h3>Centralizar la información</h3><p>Reunir en un mismo entorno los datos necesarios para evitar búsquedas entre correos y planillas.</p></article>
+              <article class="case-card case-decision"><h3>Reducir repetición</h3><p>Organizar la carga para disminuir tareas manuales duplicadas dentro del recorrido.</p></article>
+              <article class="case-card case-decision"><h3>Hacer visibles los estados</h3><p>Dar referencias claras para entender dónde se encuentra cada gestión y qué requiere atención.</p></article>
+              <article class="case-card case-decision"><h3>Sostener la trazabilidad</h3><p>Conservar el contexto de cada paso para facilitar el seguimiento del proceso completo.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="resultado" class="case-section">
+          <p class="case-section__label">05 · Resultado</p>
+          <div class="case-outcome">
+            <h2>Una propuesta final para convertir un proceso disperso en un recorrido claro.</h2>
+            <p>
+              Al cierre de las 20 semanas, el equipo entregó una propuesta final de diseño que integraba el proceso relevado, los flujos definidos y la interfaz de alta fidelidad. El proyecto llegó hasta esa instancia: no se presentan implementación ni resultados de uso porque no forman parte de la evidencia disponible.
+            </p>
+            <div class="case-note">
+              <p><strong>Alcance documentado.</strong> La entrega fue una propuesta de diseño. Las mejoras esperadas —menos tareas manuales, mayor orden y mejor seguimiento— se expresan como objetivos de la solución, no como métricas alcanzadas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="aprendizaje" class="case-section">
+          <p class="case-section__label">06 · Lo que me dejó</p>
+          <div>
+            <h2>Diseñar también es encontrar una estructura que el equipo pueda compartir.</h2>
+            <p>
+              Este proyecto reforzó el valor de representar la complejidad antes de resolver la interfaz. Historias de usuario, taskflows y wireframes funcionaron como un lenguaje común para conversar sobre el proceso y llevarlo, paso a paso, hasta una propuesta final consistente.
             </p>
           </div>
+        </section>
 
-          <div class="case-modal__grid">
-            <div class="case-modal__block">
-              <h4>Context</h4>
-              <p>
-                Orders lived across emails and disconnected files, which delayed
-                approvals and made billing corrections too common. The core
-                challenge was to unify complex flows and enable real-time
-                collaboration with transport partners.
-              </p>
-            </div>
-
-            <div class="case-modal__block">
-              <h4>Goals</h4>
-              <ul>
-                <li>Reduce rework by ~40% with cleaner request data.</li>
-                <li>Shorten order turnaround time by ~30%.</li>
-                <li>Lower support tickets tied to manual entry.</li>
-              </ul>
-            </div>
-
-            <div class="case-modal__block">
-              <h4>Process</h4>
-              <p>
-                Four weeks of workshops and discovery with Purchasing, IT, Tax,
-                Billing, and Sales. We mapped workflows, shaped the information
-                architecture, and prioritized an MVP focused on measurable
-                impact.
-              </p>
-            </div>
-
-            <div class="case-modal__block">
-              <h4>Outcome</h4>
-              <p>
-                A single platform that ties logistics, admin, and carriers into
-                one flow—improving visibility, speeding decisions, and setting
-                the foundation for future modules.
-              </p>
-            </div>
-          </div>
-
-          <div class="case-modal__gallery">
-            <figure>
-              <img
-                src="images/folio/gallery/g-sullair-1.png"
-                alt="Sullair dashboard overview with key daily actions"
-                loading="lazy"
-              />
-              <figcaption>
-                Control center for daily priorities and quick actions.
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="images/folio/gallery/g-sullair-2.png"
-                alt="Sullair upload interface with request creation flow"
-                loading="lazy"
-              />
-              <figcaption>
-                Request upload flow designed to cut re-entry and speed
-                approvals.
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="images/folio/gallery/g-sullair-3.png"
-                alt="Carrier operations screen with trips and awards"
-                loading="lazy"
-              />
-              <figcaption>
-                Carrier workspace focused on trips, status, and fast response.
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="images/folio/gallery/g-sullair-4.png"
-                alt="Modular sidebar hub for analytics and billing"
-                loading="lazy"
-              />
-              <figcaption>
-                Modular sidebar ready for analytics, integrations, and billing.
-              </figcaption>
-            </figure>
-          </div>
+        <div class="case-next">
+          <p>¿Querés ver otro proyecto?</p>
+          <a href="telecom.html" class="btn btn--stroke btn--large">Ver caso Telecom</a>
+          <a href="osde.html" class="btn btn--stroke btn--large">Ver caso OSDE</a>
+          <a href="index.html#works" class="btn btn--primary btn--large">Volver a proyectos</a>
         </div>
-        <div class="row" style="margin-top: 60px">
-          <div class="column xl-12" style="text-align: center">
-            <a href="index.html#works" class="btn btn--stroke btn--large"
-              >Go Back</a
-            >
-          </div>
-        </div>
-      </section>
+      </main>
 
-      <!-- # footer 
-        ================================================== -->
       <footer id="footer" class="s-footer target-section">
-        <div class="row">
-          <div class="column lg-12">
-            <div class="section-header light-on-dark" data-num="03">
-              <h2 class="text-display-title">Get In Touch.</h2>
-            </div>
-            <!-- end section-header -->
-          </div>
-        </div>
-
+        <div class="row"><div class="column lg-12"><div class="section-header light-on-dark"><h2 class="text-display-title">¿Trabajamos juntos?</h2></div></div></div>
         <div class="row s-footer__content">
-          <div class="column xl-6 md-12 s-footer__block s-footer__site-links">
-            <div class="row">
-              <div class="column xl-6 md-6 tab-12">
-                <h5>Contact Me</h5>
-                <ul class="link-list">
-                  <li><a href="mailto:#0"></a></li>
-                  <li style="padding-top: 16px">
-                    <a
-                      href="mailto:florenciamanara.ux@gmail.com"
-                      style="display: flex; align-items: center; gap: 6px"
-                    >
-                      <img
-                        src="/images/icons/mail.svg"
-                        alt="mail-icon"
-                        height="30"
-                        width="30"
-                        display="inline"
-                        style="margin-bottom: 0"
-                      />
-                      <span>florenciamanara.ux@gmail.com</span>
-                    </a>
-                  </li>
-                  <li style="padding-top: 16px">
-                    <a
-                      href="#0"
-                      style="display: flex; align-items: center; gap: 6px"
-                    >
-                      <img
-                        src="/images/icons/phone.svg"
-                        alt="mail-icon"
-                        height="30"
-                        width="30"
-                        style="margin-bottom: 0"
-                      />
-
-                      <span style="white-space: nowrap">+54 280 461 5133</span>
-                    </a>
-                  </li>
-                  <li style="padding-top: 16px">
-                    <a
-                      href="https://www.linkedin.com/in/florencia-manara-fm/"
-                      target="_blank"
-                      style="display: flex; align-items: center; gap: 6px"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x="0px"
-                        y="0px"
-                        width="40px"
-                        height="40px"
-                        viewBox="0 0 50 50"
-                        style="fill: #ffffff; display: inline"
-                      >
-                        <path
-                          d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
-                        ></path>
-                      </svg>
-                      <span>Linkedin</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- end section-footer__site-links -->
+          <div class="column xl-6 md-12"><p class="attention-getter">Estoy disponible para conversar sobre UX Research, estrategia de producto y oportunidades de colaboración.</p></div>
+          <div class="column xl-6 md-12"><a class="btn btn--primary btn--large u-fullwidth" href="index.html#footer">Ver datos de contacto</a></div>
         </div>
-        <!-- end section-footer__content -->
-
-        <div class="row s-footer__buttons">
-          <div class="column xl-6 tab-12">
-            <a
-              href="images/resume_florencia_manara.pdf"
-              class="btn btn--stroke btn--large u-fullwidth"
-              download="Florencia Manara Resume UX/UI Designer"
-              target="_blank"
-              >Get My CV</a
-            >
-          </div>
-        </div>
-        <!-- end section-footer__buttons -->
-
-        <div class="ss-go-top">
-          <a class="smoothscroll" title="Back to Top" href="#top">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              style="fill: rgba(0, 0, 0, 1); transform:; msfilter:"
-            >
-              <path
-                d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"
-              ></path>
-            </svg>
-          </a>
-          <span>Back To Top</span>
-        </div>
-        <!-- end ss-go-top -->
       </footer>
-      <!-- end s-footer -->
     </div>
-    <!-- end page-wrap -->
-
-    <!-- Java Script
-    ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
   </body>
