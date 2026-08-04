@@ -106,6 +106,16 @@
         content: ""; display: block; width: 4rem; height: .6rem; margin-bottom: 2rem;
         border-radius: 999px; background: var(--case-highlight);
       }
+      .case-gallery { display: grid; gap: 4rem; margin-top: 4rem; }
+      .case-media { margin: 0; }
+      .case-media img {
+        display: block; width: 100%; height: auto; margin: 0;
+        border: 1px solid var(--case-line); border-radius: 2.4rem;
+      }
+      .case-media figcaption {
+        max-width: 72ch; margin-top: 1.2rem; color: var(--case-muted);
+        font-size: 1.35rem; line-height: 1.5;
+      }
       .case-outcome { padding: 4rem; border-radius: 2.8rem; background: var(--case-soft); }
       .case-outcome .case-card { background: #fff; }
       .case-note {
@@ -128,6 +138,7 @@
         .case-page { padding-right: 2rem; padding-left: 2rem; }
         .case-title { font-size: 4.7rem; }
         .case-brand { min-height: 18rem; border-radius: 2rem; }
+        .case-media img { border-radius: 1.6rem; }
         .case-summary dl, .case-grid { grid-template-columns: 1fr; }
         .case-summary div + div, .case-summary div:nth-child(3) {
           padding-top: 1.6rem; padding-left: 0;
@@ -233,8 +244,36 @@
           </div>
         </section>
 
+        <section id="diseno-final" class="case-section">
+          <p class="case-section__label">04 · Diseño final</p>
+          <div>
+            <h2>Una interfaz común para acompañar el proceso de punta a punta.</h2>
+            <p>
+              La propuesta final organizó accesos, actividad reciente, solicitudes y estados dentro de un mismo sistema visual. Las distintas vistas responden a los momentos y perfiles involucrados en el recorrido.
+            </p>
+            <div class="case-gallery">
+              <figure class="case-media">
+                <img src="images/folio/gallery/g-sullair-1.png" alt="Diseño final del inicio con acciones rápidas, actividad reciente y evaluaciones pendientes" width="2048" height="1449" loading="lazy" decoding="async" />
+                <figcaption>Inicio: acciones frecuentes, actividad reciente y pendientes reunidos en una vista general.</figcaption>
+              </figure>
+              <figure class="case-media">
+                <img src="images/folio/gallery/g-sullair-2.png" alt="Diseño final del flujo para buscar o cargar una requisitoria" width="2048" height="1449" loading="lazy" decoding="async" />
+                <figcaption>Inicio del flujo de carga: búsqueda de una requisitoria existente y alternativas de ingreso manual o automático.</figcaption>
+              </figure>
+              <figure class="case-media">
+                <img src="images/folio/gallery/g-sullair-3.png" alt="Diseño final del inicio para transportistas con solicitudes recibidas y viajes programados" width="2048" height="1449" loading="lazy" decoding="async" />
+                <figcaption>Vista para transportistas: solicitudes recibidas, accesos frecuentes y viajes programados.</figcaption>
+              </figure>
+              <figure class="case-media">
+                <img src="images/folio/gallery/g-sullair-4.png" alt="Detalle del sistema visual aplicado al inicio y sus acciones rápidas" width="2048" height="1449" loading="lazy" decoding="async" />
+                <figcaption>Detalle de la propuesta visual aplicada a la navegación y las acciones principales.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
         <section id="decisiones" class="case-section">
-          <p class="case-section__label">04 · Decisiones de diseño</p>
+          <p class="case-section__label">05 · Decisiones de diseño</p>
           <div>
             <h2>El foco estuvo en ordenar, guiar y hacer seguimiento.</h2>
             <div class="case-grid">
@@ -247,7 +286,7 @@
         </section>
 
         <section id="resultado" class="case-section">
-          <p class="case-section__label">05 · Resultado</p>
+          <p class="case-section__label">06 · Resultado</p>
           <div class="case-outcome">
             <h2>Una propuesta final para convertir un proceso disperso en un recorrido claro.</h2>
             <p>
@@ -260,7 +299,7 @@
         </section>
 
         <section id="aprendizaje" class="case-section">
-          <p class="case-section__label">06 · Lo que me dejó</p>
+          <p class="case-section__label">07 · Lo que me dejó</p>
           <div>
             <h2>Diseñar también es encontrar una estructura que el equipo pueda compartir.</h2>
             <p>
