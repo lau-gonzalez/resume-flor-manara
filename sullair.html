@@ -81,6 +81,20 @@
       .case-section h3 { margin: 0 0 1rem; font-size: 2.1rem; letter-spacing: -.02em; }
       .case-section p, .case-section li { color: var(--case-muted); font-size: 1.7rem; line-height: 1.7; }
       .case-section p { max-width: 68ch; }
+      .case-context {
+        display: grid; grid-template-columns: 16rem minmax(0, 1fr); gap: 4rem;
+        margin-top: 8rem; padding: 4.8rem;
+        border: 1px solid var(--case-line); border-radius: 2.8rem; background: var(--case-soft);
+      }
+      .case-context h2 {
+        max-width: 21ch; margin: 0 0 2rem;
+        font-size: clamp(3rem, 4vw, 4.6rem); line-height: 1.08; letter-spacing: -.04em;
+      }
+      .case-context p {
+        max-width: 68ch; margin-bottom: 1.6rem;
+        color: var(--case-muted); font-size: 1.7rem; line-height: 1.7;
+      }
+      .case-context p:last-child { margin-bottom: 0; }
       .case-question {
         max-width: 34ch; margin: 3rem 0 0; padding-left: 2.4rem;
         border-left: 5px solid var(--case-accent); color: var(--case-ink) !important;
@@ -133,12 +147,14 @@
         .case-summary dl { grid-template-columns: 1fr 1fr; }
         .case-summary div:nth-child(3) { padding-left: 0; border-left: 0; }
         .case-section { grid-template-columns: 1fr; gap: 1.4rem; padding-top: 8rem; }
+        .case-context { grid-template-columns: 1fr; gap: 1.4rem; padding: 4rem; }
       }
       @media (max-width: 600px) {
         .case-page { padding-right: 2rem; padding-left: 2rem; }
         .case-title { font-size: 4.7rem; }
         .case-brand { min-height: 18rem; border-radius: 2rem; }
         .case-media img { border-radius: 1.6rem; }
+        .case-context { margin-top: 6rem; padding: 3rem 2.2rem; border-radius: 2rem; }
         .case-summary dl, .case-grid { grid-template-columns: 1fr; }
         .case-summary div + div, .case-summary div:nth-child(3) {
           padding-top: 1.6rem; padding-left: 0;
@@ -193,12 +209,12 @@
           </aside>
         </section>
 
-        <section id="participacion" class="case-section">
-          <p class="case-section__label">Sullair Argentina</p>
+        <section id="participacion" class="case-context">
+          <p class="case-section__label">Contexto</p>
           <div>
-            <h2>Uno de los proyectos en los que trabajé para Sullair.</h2>
+            <h2>Durante más de un año trabajé con Sullair Argentina.</h2>
             <p>
-              Durante más de un año trabajé en distintos proyectos para Sullair Argentina junto a un equipo de UX, UI, Desarrollo y PM. Este fue uno de ellos: durante 20 semanas trabajamos en el diseño de un portal para gestionar fletes de larga distancia.
+              Participé en distintos proyectos junto a un equipo de UX, UI, Desarrollo y PM. Este fue uno de ellos: durante 20 semanas trabajamos en el diseño de un portal para gestionar fletes de larga distancia.
             </p>
             <p>
               Participé en el relevamiento, la definición de las historias de usuario, la arquitectura de información, los taskflows y los wireframes hasta llegar a la propuesta final de diseño.
@@ -211,17 +227,20 @@
           <div>
             <h2>El punto de partida era un cotizador para el equipo de Compras.</h2>
             <p>
-              La idea inicial era diseñar un cotizador tipo subasta. Los proveedores podrían presentar sus ofertas dentro del portal y Compras podría compararlas sin negociar cada propuesta por separado o seguir conversaciones por email.
+              Las cotizaciones se negociaban de manera individual con cada proveedor y buena parte del seguimiento ocurría por email. Esto generaba mucho ida y vuelta y hacía difícil que todos los roles involucrados vieran las ofertas y el estado de cada solicitud.
+            </p>
+            <p>
+              Por eso el pedido inicial fue diseñar un cotizador tipo subasta: los proveedores podrían presentar sus ofertas dentro del portal y Compras podría compararlas sin sostener cada negociación por separado.
             </p>
             <p class="case-question">¿Cómo podíamos hacer más clara la cotización de un flete y dejar la información disponible para todos los perfiles involucrados?</p>
             <div class="case-grid">
               <article class="case-card case-card--soft">
-                <h3>Para Compras</h3>
-                <p>Publicar solicitudes, comparar cotizaciones y consultar su historial desde un mismo lugar.</p>
+                <h3>Una referencia compartida</h3>
+                <p>Reunir solicitudes, cotizaciones, estados e historial para que la información no quedara repartida entre conversaciones.</p>
               </article>
               <article class="case-card case-card--soft">
-                <h3>Para transportistas</h3>
-                <p>Recibir solicitudes, cotizar y acceder a la información necesaria para cada viaje.</p>
+                <h3>Menos negociación manual</h3>
+                <p>Permitir que los transportistas cotizaran dentro del portal y que Compras comparara las propuestas en un mismo lugar.</p>
               </article>
             </div>
           </div>
@@ -232,13 +251,16 @@
           <div>
             <h2>El alcance cambió a partir del relevamiento y las restricciones técnicas.</h2>
             <p>
-              Al analizar el proceso encontramos oportunidades que iban más allá del cotizador. El equipo exploró una plataforma más amplia, pero la integración disponible con Alquimia no permitía sostener ese alcance. Volvimos al foco inicial y planteamos un portal preparado para crecer.
+              Al relevar el proceso completo encontramos necesidades que iban más allá del cotizador: información de proveedores, historial de solicitudes, documentación y seguimiento de viajes. El equipo exploró una plataforma más amplia, pero Alquimia —el sistema del que debía obtener parte de la información— sólo podía consultarse una vez al día y fuera del horario laboral. Esa limitación hacía inviable el alcance ampliado.
+            </p>
+            <p>
+              Decidimos volver al foco inicial, pero no descartamos lo aprendido. Ajustamos el alcance y diseñamos una arquitectura preparada para sumar nuevos flujos más adelante.
             </p>
             <div class="case-grid">
-              <article class="case-card"><div class="case-step"><span class="case-step__number">01</span><div><h3>Relevamiento</h3><p>Revisamos el proceso de fletes e identificamos necesidades de usuarios internos y externos.</p></div></div></article>
-              <article class="case-card"><div class="case-step"><span class="case-step__number">02</span><div><h3>Alcance</h3><p>Ajustamos las historias de usuario y las agrupamos en 8 épicas de acuerdo con el nuevo foco.</p></div></div></article>
-              <article class="case-card"><div class="case-step"><span class="case-step__number">03</span><div><h3>Arquitectura y flujos</h3><p>Usamos card sorting para revisar la navegación y trabajamos los taskflows principales.</p></div></div></article>
-              <article class="case-card"><div class="case-step"><span class="case-step__number">04</span><div><h3>Design system</h3><p>Partimos del sistema existente, mantuvimos la identidad visual de Sullair y sumamos los componentes que necesitaba el nuevo portal.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">01</span><div><h3>Relevamiento</h3><p>Miramos el proceso completo para no diseñar el cotizador como una pieza aislada y entender qué necesitaba cada perfil.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">02</span><div><h3>Alcance</h3><p>Refinamos 30 historias de usuario y las agrupamos en 8 épicas para ordenar las funciones previstas para el portal.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">03</span><div><h3>Arquitectura y flujos</h3><p>Con tantas funciones posibles, usamos card sorting para revisar la navegación antes de avanzar con los taskflows.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">04</span><div><h3>Design system</h3><p>Partimos del sistema existente para mantener la identidad de Sullair y lo ampliamos con los componentes que requería el nuevo portal.</p></div></div></article>
             </div>
           </div>
         </section>
@@ -248,7 +270,7 @@
           <div>
             <h2>Dos puntos de entrada para un mismo proceso.</h2>
             <p>
-              El diseño final contempla una vista para usuarios internos y otra para transportistas. Cada inicio prioriza las acciones y la información que ese perfil necesita para trabajar.
+              Compras y los transportistas intervenían en momentos diferentes y no necesitaban ver lo mismo. Por eso el diseño final contempla dos inicios: cada uno prioriza las acciones, solicitudes y estados relevantes para ese perfil, pero ambos trabajan sobre la misma información.
             </p>
             <div class="case-gallery">
               <figure class="case-media">
@@ -274,7 +296,7 @@
         <section id="decisiones" class="case-section">
           <p class="case-section__label">04 · Decisiones de diseño</p>
           <div>
-            <h2>Qué debía resolver el portal.</h2>
+            <h2>Las decisiones respondieron a problemas concretos.</h2>
             <div class="case-grid">
               <article class="case-card case-decision"><h3>Cotizaciones visibles</h3><p>Permitir que los roles involucrados consultaran las ofertas y el estado de cada solicitud.</p></article>
               <article class="case-card case-decision"><h3>Menos intercambios por email</h3><p>Concentrar la publicación, la cotización y el seguimiento dentro del portal.</p></article>
