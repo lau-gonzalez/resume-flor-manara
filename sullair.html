@@ -247,30 +247,52 @@
         </section>
 
         <section id="enfoque" class="case-section">
-          <p class="case-section__label">02 · Cómo lo trabajamos</p>
+          <p class="case-section__label">02 · Entender antes de diseñar</p>
           <div>
-            <h2>El alcance cambió a partir del relevamiento y las restricciones técnicas.</h2>
+            <h2>Reconstruimos el proceso con las personas involucradas.</h2>
             <p>
-              Al relevar el proceso completo encontramos necesidades que iban más allá del cotizador: información de proveedores, historial de solicitudes, documentación y seguimiento de viajes. El equipo exploró una plataforma más amplia, pero Alquimia —el sistema del que debía obtener parte de la información— sólo podía consultarse una vez al día y fuera del horario laboral. Esa limitación hacía inviable el alcance ampliado.
+              Realizamos sesiones con personas de distintas áreas y roles vinculados a la gestión de los fletes. Revisamos las herramientas que utilizaban, reconstruimos los recorridos actuales y registramos las necesidades que aparecían en cada momento.
             </p>
             <p>
-              Decidimos volver al foco inicial, pero no descartamos lo aprendido. Ajustamos el alcance y diseñamos una arquitectura preparada para sumar nuevos flujos más adelante.
+              Con esa información armamos un mapa del proceso e identificamos puntos de dolor y oportunidades de mejora. El relevamiento mostró que las necesidades no terminaban en el cotizador: también aparecían temas relacionados con proveedores, historial de solicitudes, documentación y seguimiento de viajes.
+            </p>
+            <p>
+              El equipo exploró una plataforma más amplia. Sin embargo, las limitaciones de integración con los sistemas existentes hacían inviable sostener todo ese alcance en una primera versión. Decidimos volver al foco inicial, pero usamos lo aprendido para diseñar una base preparada para incorporar nuevas funciones más adelante.
+            </p>
+          </div>
+        </section>
+
+        <section id="definicion" class="case-section">
+          <p class="case-section__label">03 · Definir el alcance</p>
+          <div>
+            <h2>Ordenamos las funciones antes de avanzar con las pantallas.</h2>
+            <p>
+              Con el nuevo foco, revisamos y organizamos 30 historias de usuario agrupadas en 8 épicas. Esto nos ayudó a ordenar las funciones del portal y a diferenciar las necesidades de los distintos perfiles.
+            </p>
+            <p>
+              A partir de ese trabajo desarrollamos una primera arquitectura de información y los recorridos principales. Antes de avanzar con las pantallas, evaluamos la arquitectura mediante un card sorting con usuarios internos.
+            </p>
+            <p>
+              Los resultados nos permitieron revisar cómo se agrupaban los contenidos y ajustar la navegación. Con la estructura definida, continuamos con los taskflows y los wireframes de baja fidelidad.
             </p>
             <div class="case-grid">
-              <article class="case-card"><div class="case-step"><span class="case-step__number">01</span><div><h3>Relevamiento</h3><p>Miramos el proceso completo para no diseñar el cotizador como una pieza aislada y entender qué necesitaba cada perfil.</p></div></div></article>
-              <article class="case-card"><div class="case-step"><span class="case-step__number">02</span><div><h3>Alcance</h3><p>Refinamos 30 historias de usuario y las agrupamos en 8 épicas para ordenar las funciones previstas para el portal.</p></div></div></article>
-              <article class="case-card"><div class="case-step"><span class="case-step__number">03</span><div><h3>Arquitectura y flujos</h3><p>Con tantas funciones posibles, usamos card sorting para revisar la navegación antes de avanzar con los taskflows.</p></div></div></article>
-              <article class="case-card"><div class="case-step"><span class="case-step__number">04</span><div><h3>Design system</h3><p>Partimos del sistema existente para mantener la identidad de Sullair y lo ampliamos con los componentes que requería el nuevo portal.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">01</span><div><h3>Historias de usuario</h3><p>30 historias agrupadas en 8 épicas para organizar las funciones y los perfiles involucrados.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">02</span><div><h3>Arquitectura</h3><p>Una primera estructura de contenidos y navegación basada en las necesidades relevadas.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">03</span><div><h3>Card sorting</h3><p>Una evaluación con usuarios internos para revisar las agrupaciones y ajustar la arquitectura.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">04</span><div><h3>Flujos y wireframes</h3><p>Taskflows y pantallas en baja fidelidad para definir los recorridos antes del diseño visual.</p></div></div></article>
             </div>
           </div>
         </section>
 
         <section id="diseno-final" class="case-section">
-          <p class="case-section__label">03 · Diseño final</p>
+          <p class="case-section__label">04 · Diseño visual</p>
           <div>
             <h2>Dos puntos de entrada para un mismo proceso.</h2>
             <p>
-              Compras y los transportistas intervenían en momentos diferentes y no necesitaban ver lo mismo. Por eso el diseño final contempla dos inicios: cada uno prioriza las acciones, solicitudes y estados relevantes para ese perfil, pero ambos trabajan sobre la misma información.
+              Para la interfaz partimos del design system que Sullair ya utilizaba. Mantuvimos esa identidad visual y ampliamos el sistema con los componentes necesarios para el nuevo portal.
+            </p>
+            <p>
+              El diseño final contempló una vista para usuarios internos y otra para transportistas. Cada inicio priorizaba las acciones y la información que ese perfil necesitaba, pero ambos trabajaban sobre las mismas solicitudes, cotizaciones y estados.
             </p>
             <div class="case-gallery">
               <figure class="case-media">
@@ -294,20 +316,20 @@
         </section>
 
         <section id="decisiones" class="case-section">
-          <p class="case-section__label">04 · Decisiones de diseño</p>
+          <p class="case-section__label">05 · Decisiones de diseño</p>
           <div>
             <h2>Las decisiones respondieron a problemas concretos.</h2>
             <div class="case-grid">
-              <article class="case-card case-decision"><h3>Cotizaciones visibles</h3><p>Permitir que los roles involucrados consultaran las ofertas y el estado de cada solicitud.</p></article>
-              <article class="case-card case-decision"><h3>Menos intercambios por email</h3><p>Concentrar la publicación, la cotización y el seguimiento dentro del portal.</p></article>
-              <article class="case-card case-decision"><h3>Información de proveedores</h3><p>Consultar su estado, frecuencia de trabajo y calificaciones desde un mismo lugar.</p></article>
-              <article class="case-card case-decision"><h3>Seguimiento de viajes</h3><p>Dar visibilidad a los viajes programados y permitir informar su inicio y finalización.</p></article>
+              <article class="case-card case-decision"><h3>Reunir la información</h3><p>Concentrar solicitudes, cotizaciones, estados e historial para no depender de diferentes conversaciones por email.</p></article>
+              <article class="case-card case-decision"><h3>Simplificar las cotizaciones</h3><p>Permitir que los transportistas presentaran sus ofertas dentro del portal y que Compras pudiera compararlas.</p></article>
+              <article class="case-card case-decision"><h3>Diferenciar los perfiles</h3><p>Priorizar accesos, tareas y contenidos según el momento del proceso en el que intervenía cada perfil.</p></article>
+              <article class="case-card case-decision"><h3>Preparar el portal para crecer</h3><p>Crear una arquitectura capaz de incorporar nuevos flujos y funcionalidades más adelante.</p></article>
             </div>
           </div>
         </section>
 
         <section id="resultado" class="case-section">
-          <p class="case-section__label">05 · Resultado</p>
+          <p class="case-section__label">06 · Resultado</p>
           <div class="case-outcome">
             <h2>El proyecto cerró con una propuesta final de diseño.</h2>
             <p>
@@ -320,7 +342,7 @@
         </section>
 
         <section id="aprendizaje" class="case-section">
-          <p class="case-section__label">06 · Lo que me dejó</p>
+          <p class="case-section__label">07 · Lo que me dejó</p>
           <div>
             <h2>El alcance también se diseña.</h2>
             <p>
