@@ -81,20 +81,6 @@
       .case-section h3 { margin: 0 0 1rem; font-size: 2.1rem; letter-spacing: -.02em; }
       .case-section p, .case-section li { color: var(--case-muted); font-size: 1.7rem; line-height: 1.7; }
       .case-section p { max-width: 68ch; }
-      .case-context {
-        display: grid; grid-template-columns: 16rem minmax(0, 1fr); gap: 4rem;
-        margin-top: 8rem; padding: 4.8rem;
-        border: 1px solid var(--case-line); border-radius: 2.8rem; background: var(--case-soft);
-      }
-      .case-context h2 {
-        max-width: 21ch; margin: 0 0 2rem;
-        font-size: clamp(3rem, 4vw, 4.6rem); line-height: 1.08; letter-spacing: -.04em;
-      }
-      .case-context p {
-        max-width: 68ch; margin-bottom: 1.6rem;
-        color: var(--case-muted); font-size: 1.7rem; line-height: 1.7;
-      }
-      .case-context p:last-child { margin-bottom: 0; }
       .case-question {
         max-width: 34ch; margin: 3rem 0 0; padding-left: 2.4rem;
         border-left: 5px solid var(--case-accent); color: var(--case-ink) !important;
@@ -143,14 +129,12 @@
         .case-summary dl { grid-template-columns: 1fr 1fr; }
         .case-summary div:nth-child(3) { padding-left: 0; border-left: 0; }
         .case-section { grid-template-columns: 1fr; gap: 1.4rem; padding-top: 8rem; }
-        .case-context { grid-template-columns: 1fr; gap: 1.4rem; padding: 4rem; }
       }
       @media (max-width: 600px) {
         .case-page { padding-right: 2rem; padding-left: 2rem; }
         .case-title { font-size: 4.7rem; }
         .case-brand { min-height: 18rem; border-radius: 2rem; }
         .case-media img { border-radius: 1.6rem; }
-        .case-context { margin-top: 6rem; padding: 3rem 2.2rem; border-radius: 2rem; }
         .case-summary dl, .case-grid { grid-template-columns: 1fr; }
         .case-summary div + div, .case-summary div:nth-child(3) {
           padding-top: 1.6rem; padding-left: 0;
@@ -203,19 +187,6 @@
               <div><dt>Entrega</dt><dd>Propuesta final de diseño</dd></div>
             </dl>
           </aside>
-        </section>
-
-        <section id="participacion" class="case-context">
-          <p class="case-section__label">Contexto</p>
-          <div>
-            <h2>El proyecto</h2>
-            <p>
-              Durante más de un año formé parte del equipo que trabajó en distintas iniciativas digitales para Sullair Argentina. Una de ellas fue este proyecto: durante 20 semanas trabajamos en una propuesta para ordenar la gestión de transportes de larga distancia.
-            </p>
-            <p>
-              Mi trabajo estuvo enfocado en relevar el proceso, organizar las necesidades en historias de usuario y definir la arquitectura, los recorridos y los wireframes junto al equipo, hasta llegar a la propuesta final de diseño.
-            </p>
-          </div>
         </section>
 
         <section id="desafio" class="case-section">
