@@ -110,12 +110,6 @@
       }
       .case-card--soft { background: var(--case-soft); }
       .case-card p:last-child, .case-card ul:last-child { margin-bottom: 0; }
-      .case-step { display: grid; grid-template-columns: 5.2rem 1fr; gap: 1.6rem; }
-      .case-step__number {
-        display: grid; width: 5.2rem; height: 5.2rem; place-items: center;
-        border-radius: 50%; background: var(--case-accent); color: #fff;
-        font-size: 1.5rem; font-weight: 700;
-      }
       .case-decision::before {
         content: ""; display: block; width: 4rem; height: .6rem; margin-bottom: 2rem;
         border-radius: 999px; background: var(--case-highlight);
@@ -261,22 +255,16 @@
         <section id="definicion" class="case-section">
           <p class="case-section__label">03 · Definir el alcance</p>
           <div>
-            <h2>Ordenamos las funciones antes de avanzar con las pantallas.</h2>
+            <h2>Primero definimos qué debía incluir el portal y cómo organizarlo.</h2>
             <p>
-              Con el nuevo foco, revisamos y organizamos 30 historias de usuario agrupadas en 8 épicas. Esto nos ayudó a ordenar las funciones del portal y a diferenciar las necesidades de los distintos perfiles.
+              Al volver al foco del cotizador, necesitábamos convertir todo lo relevado en un alcance concreto. Organizamos 30 historias de usuario en 8 épicas para definir qué acciones debía poder realizar cada perfil dentro del portal.
             </p>
             <p>
-              A partir de ese trabajo desarrollamos una primera arquitectura de información y los recorridos principales. Antes de avanzar con las pantallas, evaluamos la arquitectura mediante un card sorting con usuarios internos.
+              Con esas funciones armamos una primera arquitectura de información. Antes de llevarla a pantallas, hicimos un card sorting con usuarios internos para entender si los contenidos estaban agrupados de una manera clara para quienes iban a usar la herramienta.
             </p>
             <p>
-              Los resultados nos permitieron revisar cómo se agrupaban los contenidos y ajustar la navegación. Con la estructura definida, continuamos con los taskflows y los wireframes de baja fidelidad.
+              La actividad nos permitió revisar agrupaciones y ajustar la navegación. Recién con esa estructura definida trazamos los recorridos principales y los convertimos en taskflows y wireframes de baja fidelidad.
             </p>
-            <div class="case-grid">
-              <article class="case-card"><div class="case-step"><span class="case-step__number">01</span><div><h3>Historias de usuario</h3><p>30 historias agrupadas en 8 épicas para organizar las funciones y los perfiles involucrados.</p></div></div></article>
-              <article class="case-card"><div class="case-step"><span class="case-step__number">02</span><div><h3>Arquitectura</h3><p>Una primera estructura de contenidos y navegación basada en las necesidades relevadas.</p></div></div></article>
-              <article class="case-card"><div class="case-step"><span class="case-step__number">03</span><div><h3>Card sorting</h3><p>Una evaluación con usuarios internos para revisar las agrupaciones y ajustar la arquitectura.</p></div></div></article>
-              <article class="case-card"><div class="case-step"><span class="case-step__number">04</span><div><h3>Flujos y wireframes</h3><p>Taskflows y pantallas en baja fidelidad para definir los recorridos antes del diseño visual.</p></div></div></article>
-            </div>
           </div>
         </section>
 
