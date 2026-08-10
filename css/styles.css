@@ -4511,6 +4511,8 @@ body.modal-is-open {
 
 .folio-entries .entry__info {
   z-index: 2;
+  width: 78%;
+  max-width: 36rem;
   transform: translate(-50%, 100%);
   opacity: 0;
   visibility: hidden;
@@ -4521,8 +4523,16 @@ body.modal-is-open {
 }
 
 .folio-entries .entry__cat,
+.folio-entries .entry__description,
 .folio-entries .entry__title {
   font-family: var(--font-1);
+}
+
+.folio-entries .entry__description {
+  margin: var(--vspace-0_25) 0 var(--vspace-0_125);
+  font-size: calc(var(--text-size) * 0.82);
+  line-height: 1.35;
+  color: white;
 }
 
 .folio-entries .entry__cat {
@@ -4681,6 +4691,7 @@ body.modal-is-open {
 }
 
 @media screen and (max-width: 800px) {
+  .folio-entries .entry__description,
   .folio-entries .entry__cat {
     font-size: calc(var(--text-size) * 0.7);
   }
