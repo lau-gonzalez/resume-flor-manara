@@ -4532,6 +4532,7 @@ body.modal-is-open {
   margin: var(--vspace-0_25) 0 var(--vspace-0_125);
   font-size: calc(var(--text-size) * 0.82);
   line-height: 1.35;
+  text-wrap: balance;
   color: white;
 }
 
