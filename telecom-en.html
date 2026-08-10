@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="UX Research case study for GOL, Telecom Argentina’s B2B self-service portal." />
+    <title>GOL — UX Research for Telecom | Florencia Manara</title>
+    <link rel="alternate" hreflang="es" href="telecom.html" />
+    <link rel="alternate" hreflang="en" href="telecom-en.html" />
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <style>
+      :root {
+        --case-ink: #17151f;
+        --case-muted: #625f6e;
+        --case-line: #e7e3ed;
+        --case-soft: #f7f5fa;
+        --case-accent: #4b3fac;
+        --case-accent-soft: #ece9ff;
+        --case-lime: #d8ff75;
+      }
+      html { scroll-behavior: smooth; }
+      body { background: #fff; color: var(--case-ink); }
+      .case-skip {
+        position: fixed; left: 16px; top: -80px; z-index: 9999;
+        padding: 10px 16px; border-radius: 999px;
+        background: var(--case-ink); color: #fff; transition: top .2s ease;
+      }
+      .case-skip:focus { top: 16px; }
+      .case-page { max-width: 1180px; margin: 0 auto; padding: 15rem 3.2rem 10rem; }
+      .case-hero { padding: 0 0 7rem; border-bottom: 1px solid var(--case-line); }
+      .case-hero__intro {
+        display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+        gap: 6rem; align-items: end; padding-bottom: 7rem;
+      }
+      .case-eyebrow {
+        margin: 0 0 1.6rem; color: var(--case-accent);
+        font-size: 1.3rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      }
+      .case-title {
+        max-width: 15ch; margin: 0; font-size: clamp(4.8rem, 7vw, 7.4rem);
+        line-height: 1; letter-spacing: -.05em;
+      }
+      .case-deck {
+        max-width: 58ch; margin: 2.8rem 0 0; color: var(--case-muted);
+        font-size: clamp(1.9rem, 2.3vw, 2.6rem); line-height: 1.45;
+      }
+      .case-summary { grid-column: 1 / -1; padding-top: 3rem; border-top: 1px solid var(--case-line); }
+      .case-summary dl {
+        display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin: 0;
+      }
+      .case-summary div + div { padding-left: 2rem; border-left: 1px solid var(--case-line); }
+      .case-summary dt {
+        color: var(--case-muted); font-size: 1.2rem; font-weight: 700;
+        letter-spacing: .08em; text-transform: uppercase;
+      }
+      .case-summary dd { margin: .5rem 0 0; font-size: 1.55rem; font-weight: 600; }
+      .case-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 3.2rem; }
+      .case-stat {
+        min-height: 16rem; padding: 2.8rem; border: 1px solid var(--case-line);
+        border-radius: 1.8rem; background: var(--case-soft);
+      }
+      .case-stat strong {
+        display: block; margin-bottom: 1rem; color: var(--case-accent);
+        font-size: clamp(3.6rem, 5vw, 5.6rem); line-height: 1; letter-spacing: -.04em;
+      }
+      .case-stat span { color: var(--case-muted); font-size: 1.5rem; line-height: 1.45; }
+      .case-section {
+        display: grid; grid-template-columns: 19rem minmax(0, 1fr);
+        gap: 6rem; padding-top: 10rem; scroll-margin-top: 14rem;
+      }
+      .case-section__label {
+        margin: 0; color: var(--case-accent); font-size: 1.3rem;
+        font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      }
+      .case-section h2 {
+        max-width: 18ch; margin: 0 0 2.4rem; font-size: clamp(3.4rem, 5vw, 5.6rem);
+        line-height: 1.04; letter-spacing: -.045em;
+      }
+      .case-section h3 { margin: 0 0 1rem; font-size: 2.1rem; letter-spacing: -.02em; }
+      .case-section p, .case-section li { color: var(--case-muted); font-size: 1.7rem; line-height: 1.7; }
+      .case-section p { max-width: 68ch; }
+      .case-question {
+        max-width: 32ch; margin: 3rem 0 0; padding-left: 2.4rem;
+        border-left: 5px solid var(--case-lime); color: var(--case-ink) !important;
+        font-size: clamp(2.2rem, 3vw, 3.2rem) !important; font-weight: 650; line-height: 1.4 !important;
+      }
+      .case-grid {
+        display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem; margin-top: 3.2rem;
+      }
+      .case-card {
+        padding: 2.6rem; border: 1px solid var(--case-line);
+        border-radius: 2rem; background: #fff;
+      }
+      .case-card--soft { background: var(--case-soft); }
+      .case-card p:last-child, .case-card ul:last-child { margin-bottom: 0; }
+      .case-step { display: grid; grid-template-columns: 5.2rem 1fr; gap: 1.6rem; }
+      .case-step__number {
+        display: grid; width: 5.2rem; height: 5.2rem; place-items: center;
+        border-radius: 50%; background: var(--case-accent); color: #fff;
+        font-size: 1.5rem; font-weight: 700;
+      }
+      .case-media { margin: 4rem 0 0; }
+      .case-media img {
+        width: 100%; height: auto; border: 1px solid var(--case-line);
+        border-radius: 2rem; background: var(--case-soft);
+      }
+      .case-media figcaption {
+        max-width: 72ch; margin-top: 1.2rem; color: var(--case-muted);
+        font-size: 1.35rem; line-height: 1.5;
+      }
+      .case-finding::before {
+        content: ""; display: block; width: 4rem; height: .6rem; margin-bottom: 2rem;
+        border-radius: 999px; background: var(--case-lime);
+      }
+      .case-outcome { padding: 4rem; border-radius: 2.8rem; background: var(--case-soft); }
+      .case-outcome p, .case-outcome li { color: var(--case-muted); }
+      .case-outcome .case-card { border-color: var(--case-line); background: #fff; }
+      .case-next { margin-top: 10rem; padding-top: 4rem; border-top: 1px solid var(--case-line); text-align: center; }
+      .case-next p { color: var(--case-muted); }
+      .case-next .btn { margin: .8rem; }
+      @media (max-width: 900px) {
+        .case-page { padding-top: 12rem; }
+        .case-hero__intro { grid-template-columns: 1fr; gap: 4rem; }
+        .case-summary dl { grid-template-columns: 1fr 1fr; }
+        .case-summary div:nth-child(3) { padding-left: 0; border-left: 0; }
+        .case-stats { grid-template-columns: repeat(3, 1fr); }
+        .case-section { grid-template-columns: 1fr; gap: 1.4rem; padding-top: 8rem; }
+      }
+      @media (max-width: 600px) {
+        .case-page { padding-right: 2rem; padding-left: 2rem; }
+        .case-title { font-size: 4.7rem; }
+        .case-summary dl, .case-stats, .case-grid { grid-template-columns: 1fr; }
+        .case-summary div + div, .case-summary div:nth-child(3) {
+          padding-top: 1.6rem; padding-left: 0;
+          border-top: 1px solid var(--case-line); border-left: 0;
+        }
+        .case-stat { min-height: auto; }
+        .case-outcome { padding: 3rem 2.2rem; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+  </head>
+  <body id="top" class="ss-show">
+    <a class="case-skip" href="#contenido">Skip to content</a>
+    <div id="page" class="s-pagewrap">
+      <header class="s-header">
+        <div class="row s-header__inner">
+          <div class="s-header__block">
+            <div class="s-header__logo"></div>
+            <a class="s-header__menu-toggle" href="#0" aria-label="Open navigation menu"><span>Menu</span></a>
+          </div>
+          <nav class="s-header__nav" aria-label="Main navigation">
+            <ul class="s-header__menu-links">
+              <li><a href="index-en.html#intro">Home</a></li>
+              <li><a href="index-en.html#about">About</a></li>
+              <li class="current"><a href="index-en.html#works" aria-current="page">Work</a></li>
+              <li><a href="index-en.html#footer">Contact</a></li>
+              <li class="language-switch" aria-label="Language"><a href="telecom.html" lang="es">ES</a><span aria-hidden="true">/</span><a href="telecom-en.html" lang="en" aria-current="true">EN</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main id="contenido" class="case-page">
+        <section class="case-hero" aria-labelledby="case-title">
+          <div class="case-hero__intro">
+            <div>
+              <p class="case-eyebrow">Telecom · GOL · UX Research</p>
+              <h1 id="case-title" class="case-title">From scattered feedback to a plan for restoring self-service</h1>
+            </div>
+            <p class="case-deck">
+              Research and prioritization to understand why B2B customers abandoned frequent tasks in GOL and turned digital friction into support contact.
+            </p>
+          </div>
+          <aside class="case-summary" aria-label="Project overview">
+            <dl>
+              <div><dt>Role</dt><dd>UX Researcher</dd></div>
+              <div><dt>Duration</dt><dd>6 weeks</dd></div>
+              <div><dt>Team</dt><dd>UX · Business · Customer Service</dd></div>
+              <div><dt>Client</dt><dd>Telecom Argentina</dd></div>
+            </dl>
+          </aside>
+        </section>
+        <section id="desafio" class="case-section">
+          <p class="case-section__label">01 · The project</p>
+          <div>
+            <h2>The information was there. The path to it was not clear.</h2>
+            <p>
+              GOL is Telecom’s B2B portal for customers with multiple products and contracts. Although it brought together critical tasks—bills, lines, services and claims—an NPS of −14 and open feedback pointed to difficulties completing them without assistance.
+            </p>
+            <p class="case-question">What friction interrupted self-service, and what changes could increase clarity and confidence?</p>
+            <section class="case-stats" aria-label="Research in numbers">
+              <div class="case-stat"><strong>−14</strong><span>NPS used as a starting signal, not as an outcome attributable to the project</span></div>
+              <div class="case-stat"><strong>9</strong><span>customers interviewed in sessions lasting up to 45 minutes</span></div>
+              <div class="case-stat"><strong>4</strong><span>Customer Service team members in a group workshop</span></div>
+            </section>
+            <div class="case-grid">
+              <article class="case-card case-card--soft">
+                <h3>User goal</h3>
+                <p>Complete a specific task with confidence, without having to learn the portal’s internal structure.</p>
+              </article>
+              <article class="case-card case-card--soft">
+                <h3>Business goal</h3>
+                <p>Identify opportunities to improve findability, clarity and continuity of self-service.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section id="participacion" class="case-section">
+          <p class="case-section__label">02 · My contribution</p>
+          <div>
+            <h2>Connecting signals, people and decisions.</h2>
+            <p>
+              As UX Researcher, I designed and led a six-week study with UX, Business and Customer Service. I analyzed existing signals, facilitated a workshop with four support team members, interviewed nine customers and synthesized the evidence into prioritized opportunities.
+            </p>
+            <div class="case-grid">
+              <article class="case-card"><h3>Research</h3><p>NPS analysis, open feedback, moderated interviews and journey audit.</p></article>
+              <article class="case-card"><h3>Facilitation and synthesis</h3><p>Support workshop, evidence triangulation and prioritization with the team.</p></article>
+            </div>
+          </div>
+        </section>
+        <section id="enfoque" class="case-section">
+          <p class="case-section__label">03 · How we approached it</p>
+          <div>
+            <h2>From quantitative signals to the causes behind the problem.</h2>
+            <p>
+              The research combined existing data, support team knowledge and qualitative observation. Triangulation helped distinguish isolated symptoms from consistent patterns.
+            </p>
+            <div class="case-grid">
+              <article class="case-card"><div class="case-step"><span class="case-step__number">01</span><div><h3>NPS + audit</h3><p>We reviewed results, open comments and the current journey to build hypotheses about navigation, clarity and performance.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">02</span><div><h3>Internal perspective</h3><p>A Customer Service workshop mapped recurring obstacles, likely causes and opportunities observed by support.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">03</span><div><h3>Interviews</h3><p>Nine customers with multiple products or contracts completed real tasks and explained their expectations, doubts and strategies.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">04</span><div><h3>Synthesis</h3><p>We connected what people said, what the portal showed and what the business received as support queries.</p></div></div></article>
+            </div>
+            <figure class="case-media">
+              <img src="images/folio/gallery/g-telecom-1.png" alt="Analysis board with NPS surveys, technical feedback and detractor patterns" loading="lazy" decoding="async" />
+              <figcaption>NPS and feedback analysis. Comments were grouped into patterns to guide the qualitative research.</figcaption>
+            </figure>
+            <figure class="case-media">
+              <img src="images/folio/gallery/g-telecom-2.png" alt="Workshop board with improvement areas, strengths and possible solutions" loading="lazy" decoding="async" />
+              <figcaption>Customer Service workshop: recurring friction, strengths and possible responses organized in one map.</figcaption>
+            </figure>
+            <figure class="case-media">
+              <img src="images/folio/gallery/g-telecom-3.png" alt="Interview synthesis board with hypotheses and observations organized by journey stage" loading="lazy" decoding="async" />
+              <figcaption>Interview synthesis: hypotheses, observations and quotes grouped by moments in the journey.</figcaption>
+            </figure>
+          </div>
+        </section>
+        <section id="hallazgos" class="case-section">
+          <p class="case-section__label">04 · What we found</p>
+          <div>
+            <h2>Four patterns helped explain why self-service broke down.</h2>
+            <div class="case-grid">
+              <article class="case-card case-finding"><h3>1. Labels did not anticipate the content</h3><p>People had to interpret the portal’s logic before finding a task. The problem was not missing information, but how it was organized and named.</p></article>
+              <article class="case-card case-finding"><h3>2. The home page did not reflect real priorities</h3><p>Bills, active contracts, lines and claims were recurring tasks, but they were not as visible as users expected.</p></article>
+              <article class="case-card case-finding"><h3>3. Uncertainty was perceived as risk</h3><p>When statuses or paths were unclear, people avoided experimenting. They preferred contacting support rather than risk “breaking” something.</p></article>
+              <article class="case-card case-finding"><h3>4. Digital friction became support contact</h3><p>When a task could not be completed quickly, the self-service journey stopped and Customer Service absorbed the query.</p></article>
+            </div>
+          </div>
+        </section>
+        <section id="impacto" class="case-section">
+          <p class="case-section__label">05 · Recommendations and next steps</p>
+          <div class="case-outcome">
+            <h2>The research turned scattered feedback into a prioritized plan.</h2>
+            <p>The main outcome was a shared understanding of the problem: four patterns supported by three perspectives, prioritized opportunities and a defined next experiment. The scope was diagnostic, so no later improvements are attributed without measurement.</p>
+            <div class="case-grid">
+              <article class="case-card"><h3>Restructure the architecture</h3><p>Organize categories around mental models and adjust labels to anticipate what users can do.</p></article>
+              <article class="case-card"><h3>Prioritize critical tasks</h3><p>Provide visible access to bills, contracts, lines and claims from the home page and contextual entry points.</p></article>
+              <article class="case-card"><h3>Increase clarity</h3><p>Improve hierarchy, statuses and microcopy to reduce uncertainty during a task.</p></article>
+              <article class="case-card"><h3>Validate before scaling</h3><p>Test the new architecture and navigation with real tasks before moving changes into production.</p></article>
+            </div>
+          </div>
+        </section>
+        <section id="aprendizaje" class="case-section">
+          <p class="case-section__label">06 · What I learned</p>
+          <div>
+            <h2>Researching an experience also means looking beyond the interface.</h2>
+            <p>This project changed how I look at friction. I learned that the interface explained only part of the problem: by connecting customer voices, product signals and the support experience, we could understand why uncertainty became contact and guide concrete decisions.</p>
+            <p class="case-question">Recommended next step: prototype the new architecture, measure task success and compare the need for support before and after.</p>
+          </div>
+        </section>
+        <div class="case-next">
+          <p>Would you like to see another project?</p>
+          <a href="osde-en.html" class="btn btn--stroke btn--large">View OSDE case study</a>
+          <a href="index-en.html#works" class="btn btn--primary btn--large">Back to work</a>
+        </div>
+      </main>
+      <footer id="footer" class="s-footer target-section">
+        <div class="row"><div class="column lg-12"><div class="section-header light-on-dark"><h2 class="text-display-title">Let’s work together.</h2></div></div></div>
+        <div class="row s-footer__content">
+          <div class="column xl-6 md-12"><p class="attention-getter">I am available to discuss UX Research, product strategy and collaboration opportunities.</p></div>
+          <div class="column xl-6 md-12"><a class="btn btn--primary btn--large u-fullwidth" href="index-en.html#footer">View contact details</a></div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

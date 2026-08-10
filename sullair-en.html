@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="UX case study about designing a transportation management tool for Sullair Argentina." />
+    <title>Transportation management at Sullair — UX case study | Florencia Manara</title>
+    <link rel="alternate" hreflang="es" href="sullair.html" />
+    <link rel="alternate" hreflang="en" href="sullair-en.html" />
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <style>
+      :root {
+        --case-ink: #14231d;
+        --case-muted: #5c6863;
+        --case-line: #dce5e0;
+        --case-soft: #f3f7f5;
+        --case-accent: #008b59;
+        --case-accent-dark: #005b3d;
+        --case-highlight: #d9f4e7;
+      }
+      html { scroll-behavior: smooth; }
+      body { background: #fff; color: var(--case-ink); }
+      .case-skip {
+        position: fixed; left: 16px; top: -80px; z-index: 9999;
+        padding: 10px 16px; border-radius: 999px;
+        background: var(--case-ink); color: #fff; transition: top .2s ease;
+      }
+      .case-skip:focus { top: 16px; }
+      .case-page { max-width: 1180px; margin: 0 auto; padding: 15rem 3.2rem 10rem; }
+      .case-hero { padding-bottom: 7rem; border-bottom: 1px solid var(--case-line); }
+      .case-hero__intro {
+        display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+        gap: 6rem; align-items: end; padding-bottom: 7rem;
+      }
+      .case-eyebrow {
+        margin: 0 0 1.6rem; color: var(--case-accent);
+        font-size: 1.3rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      }
+      .case-title {
+        max-width: 14ch; margin: 0; font-size: clamp(4.8rem, 7vw, 7.4rem);
+        line-height: 1; letter-spacing: -.05em;
+      }
+      .case-deck {
+        max-width: 56ch; margin: 2.8rem 0 0; color: var(--case-muted);
+        font-size: clamp(1.9rem, 2.3vw, 2.6rem); line-height: 1.45;
+      }
+      .case-brand {
+        display: grid; min-height: 33rem; place-items: center; overflow: hidden;
+        border-radius: 2.8rem; background: #00aa67;
+      }
+      .case-brand img { width: 100%; height: 100%; margin: 0; object-fit: cover; }
+      .case-summary { padding-top: 3rem; border-top: 1px solid var(--case-line); }
+      .case-summary dl {
+        display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin: 0;
+      }
+      .case-summary div + div { padding-left: 2rem; border-left: 1px solid var(--case-line); }
+      .case-summary dt {
+        color: var(--case-muted); font-size: 1.2rem; font-weight: 700;
+        letter-spacing: .08em; text-transform: uppercase;
+      }
+      .case-summary dd { margin: .5rem 0 0; font-size: 1.55rem; font-weight: 600; }
+      .case-section {
+        display: grid; grid-template-columns: 19rem minmax(0, 1fr);
+        gap: 6rem; padding-top: 10rem; scroll-margin-top: 14rem;
+      }
+      .case-section__label {
+        margin: 0; color: var(--case-accent); font-size: 1.3rem;
+        font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      }
+      .case-section h2 {
+        max-width: 19ch; margin: 0 0 2.4rem; font-size: clamp(3.4rem, 5vw, 5.6rem);
+        line-height: 1.04; letter-spacing: -.045em;
+      }
+      .case-section h3 { margin: 0 0 1rem; font-size: 2.1rem; letter-spacing: -.02em; }
+      .case-section p, .case-section li { color: var(--case-muted); font-size: 1.7rem; line-height: 1.7; }
+      .case-section p { max-width: 68ch; }
+      .case-question {
+        max-width: 34ch; margin: 3rem 0 0; padding-left: 2.4rem;
+        border-left: 5px solid var(--case-accent); color: var(--case-ink) !important;
+        font-size: clamp(2.2rem, 3vw, 3.2rem) !important; font-weight: 650; line-height: 1.4 !important;
+      }
+      .case-grid {
+        display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem; margin-top: 3.2rem;
+      }
+      .case-card {
+        padding: 2.6rem; border: 1px solid var(--case-line);
+        border-radius: 2rem; background: #fff;
+      }
+      .case-card--soft { background: var(--case-soft); }
+      .case-card p:last-child, .case-card ul:last-child { margin-bottom: 0; }
+      .case-step { display: grid; grid-template-columns: 5.2rem 1fr; gap: 1.6rem; }
+      .case-step__number {
+        display: grid; width: 5.2rem; height: 5.2rem; place-items: center;
+        border-radius: 50%; background: var(--case-accent); color: #fff;
+        font-size: 1.5rem; font-weight: 700;
+      }
+      .case-decision::before {
+        content: ""; display: block; width: 4rem; height: .6rem; margin-bottom: 2rem;
+        border-radius: 999px; background: var(--case-highlight);
+      }
+      .case-gallery { display: grid; gap: 4rem; margin-top: 4rem; }
+      .case-media { margin: 0; }
+      .case-media img {
+        display: block; width: 100%; height: auto; margin: 0;
+        border: 1px solid var(--case-line); border-radius: 2.4rem;
+      }
+      .case-media figcaption {
+        max-width: 58ch; margin: 1.2rem 0 0; color: var(--case-muted);
+        font-size: 1.35rem; line-height: 1.5; text-align: left;
+      }
+      .case-highlight-block { padding: 4rem; border-radius: 2.8rem; background: var(--case-soft); }
+      .case-highlight-block h2 { max-width: 20ch; font-size: clamp(3.2rem, 4.2vw, 4.8rem); }
+      .case-next { margin-top: 10rem; padding-top: 4rem; border-top: 1px solid var(--case-line); text-align: center; }
+      .case-next p { color: var(--case-muted); }
+      .case-next .btn { margin: .8rem; }
+      @media (max-width: 900px) {
+        .case-page { padding-top: 12rem; }
+        .case-hero__intro { grid-template-columns: 1fr; gap: 4rem; }
+        .case-brand { min-height: 24rem; }
+        .case-summary dl { grid-template-columns: 1fr 1fr; }
+        .case-summary div:nth-child(3) { padding-left: 0; border-left: 0; }
+        .case-section { grid-template-columns: 1fr; gap: 1.4rem; padding-top: 8rem; }
+      }
+      @media (max-width: 600px) {
+        .case-page { padding-right: 2rem; padding-left: 2rem; }
+        .case-title { font-size: 4.7rem; }
+        .case-brand { min-height: 18rem; border-radius: 2rem; }
+        .case-media img { border-radius: 1.6rem; }
+        .case-summary dl, .case-grid { grid-template-columns: 1fr; }
+        .case-summary div + div, .case-summary div:nth-child(3) {
+          padding-top: 1.6rem; padding-left: 0;
+          border-top: 1px solid var(--case-line); border-left: 0;
+        }
+        .case-highlight-block { padding: 3rem 2.2rem; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+  </head>
+  <body id="top" class="ss-show">
+    <a class="case-skip" href="#contenido">Skip to content</a>
+    <div id="page" class="s-pagewrap">
+      <header class="s-header">
+        <div class="row s-header__inner">
+          <div class="s-header__block">
+            <div class="s-header__logo"></div>
+            <a class="s-header__menu-toggle" href="#0" aria-label="Open navigation menu"><span>Menu</span></a>
+          </div>
+          <nav class="s-header__nav" aria-label="Main navigation">
+            <ul class="s-header__menu-links">
+              <li><a href="index-en.html#intro">Home</a></li>
+              <li><a href="index-en.html#about">About</a></li>
+              <li class="current"><a href="index-en.html#works" aria-current="page">Work</a></li>
+              <li><a href="index-en.html#footer">Contact</a></li>
+              <li class="language-switch" aria-label="Language"><a href="sullair.html" lang="es">ES</a><span aria-hidden="true">/</span><a href="sullair-en.html" lang="en" aria-current="true">EN</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main id="contenido" class="case-page">
+        <section class="case-hero" aria-labelledby="case-title">
+          <div class="case-hero__intro">
+            <div>
+              <p class="case-eyebrow">Sullair Argentina · UX/UI</p>
+              <h1 id="case-title" class="case-title">A proposal to organize transportation management</h1>
+              <p class="case-deck">
+                Over 20 weeks, we designed a portal that brought requests, quotes and tracking together for purchasing teams and carriers.
+              </p>
+            </div>
+            <figure class="case-brand">
+              <img src="images/folio/sullair.png" alt="Sullair Argentina visual identity" width="750" height="750" />
+            </figure>
+          </div>
+          <aside class="case-summary" aria-label="Project overview">
+            <dl>
+              <div><dt>Role</dt><dd>UX Designer</dd></div>
+              <div><dt>Duration</dt><dd>20 weeks</dd></div>
+              <div><dt>Team</dt><dd>UX · UI · Development · PM</dd></div>
+              <div><dt>Deliverable</dt><dd>Final design and prototype</dd></div>
+            </dl>
+          </aside>
+        </section>
+
+        <section id="desafio" class="case-section">
+          <p class="case-section__label">01 · The challenge</p>
+          <div>
+            <h2>The starting point was a quoting tool for the purchasing team.</h2>
+            <p>
+              Quotes were negotiated individually with each provider, and much of the follow-up happened by email. This created repeated back-and-forth and made it difficult for everyone involved to see the offers and the status of each request.
+            </p>
+            <p>
+              The initial brief was therefore to design an auction-style quoting tool: providers could submit their offers through the portal, and the purchasing team could compare them without managing each negotiation separately.
+            </p>
+            <p class="case-question">How could we make transportation quoting clearer and keep the information available to every role involved?</p>
+            <div class="case-grid">
+              <article class="case-card case-card--soft">
+                <h3>A shared source of information</h3>
+                <p>Bring requests, quotes, statuses and history together so information was no longer scattered across conversations.</p>
+              </article>
+              <article class="case-card case-card--soft">
+                <h3>Less manual negotiation</h3>
+                <p>Allow carriers to submit quotes through the portal and let purchasing compare proposals in one place.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="enfoque" class="case-section">
+          <p class="case-section__label">02 · Understand before designing</p>
+          <div>
+            <h2>We reconstructed the process with the people involved.</h2>
+            <p>
+              We held sessions with people from different areas and roles involved in transportation management. We reviewed the tools they used, reconstructed their current workflows and documented the needs that appeared at each stage.
+            </p>
+            <p>
+              We used that information to map the process and identify pain points and opportunities. The research showed that the needs extended beyond quoting to provider information, request history, documentation and trip tracking.
+            </p>
+            <p>
+              The team explored a broader platform. However, integration constraints with existing systems made that scope unfeasible for a first version. We returned to the original focus while using what we had learned to design a foundation that could support additional features later.
+            </p>
+          </div>
+        </section>
+
+        <section id="definicion" class="case-section">
+          <p class="case-section__label">03 · Define the scope</p>
+          <div>
+            <h2>We organized the portal’s features and navigation.</h2>
+            <p>
+              Once we returned to the quoting tool, we needed to turn everything we had learned into a concrete scope. The work moved through four steps:
+            </p>
+            <div class="case-grid">
+              <article class="case-card"><div class="case-step"><span class="case-step__number">01</span><div><h3>Define the features</h3><p>We organized 30 user stories into 8 epics to establish what each role needed to do.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">02</span><div><h3>Organize the content</h3><p>We used those features to create an initial information architecture and define the navigation.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">03</span><div><h3>Review the structure</h3><p>We ran a card sorting exercise with internal users to review groupings and adjust the navigation.</p></div></div></article>
+              <article class="case-card"><div class="case-step"><span class="case-step__number">04</span><div><h3>Map the workflows</h3><p>With the structure refined, we developed task flows and low-fidelity wireframes.</p></div></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="diseno-final" class="case-section">
+          <p class="case-section__label">04 · Visual design</p>
+          <div>
+            <h2>Two entry points into the same process.</h2>
+            <p>
+              We started from Sullair’s existing design system. We kept its visual identity and extended the system with the components required for the new portal.
+            </p>
+            <p>
+              Green remained the primary brand and action color. Orange was used as an accent, while backgrounds, dividers and fields relied on a neutral scale to organize information without competing with the content.
+            </p>
+            <p>
+              The final design included one view for internal users and another for carriers. Each home screen prioritized the actions and information relevant to that role, while both worked with the same requests, quotes and statuses.
+            </p>
+            <div class="case-gallery">
+              <figure class="case-media">
+                <img src="images/folio/gallery/g-sullair-1.png" alt="Final home screen design with quick actions, recent activity and pending reviews" width="2048" height="1449" loading="lazy" decoding="async" />
+                <figcaption>Home: frequent actions, recent activity and pending tasks brought together in one overview.</figcaption>
+              </figure>
+              <figure class="case-media">
+                <img src="images/folio/gallery/g-sullair-2.png" alt="Final flow design for finding or entering a requisition" width="2048" height="1449" loading="lazy" decoding="async" />
+                <figcaption>Entry flow: requisition search and manual or automatic input options.</figcaption>
+              </figure>
+              <figure class="case-media">
+                <img src="images/folio/gallery/g-sullair-3.png" alt="Final carrier home screen with incoming requests and scheduled trips" width="2048" height="1449" loading="lazy" decoding="async" />
+                <figcaption>Carrier view: incoming requests, frequent actions and scheduled trips.</figcaption>
+              </figure>
+              <figure class="case-media">
+                <img src="images/folio/gallery/g-sullair-4.png" alt="Detail of the visual system applied to navigation and quick actions" width="2048" height="1449" loading="lazy" decoding="async" />
+                <figcaption>Detail of the visual proposal applied to navigation and primary actions.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section id="decisiones" class="case-section">
+          <p class="case-section__label">05 · Design decisions</p>
+          <div>
+            <h2>The design decisions addressed specific problems.</h2>
+            <div class="case-grid">
+              <article class="case-card case-decision"><h3>Bring information together</h3><p>Centralize requests, quotes, statuses and history instead of relying on separate email threads.</p></article>
+              <article class="case-card case-decision"><h3>Simplify quoting</h3><p>Allow carriers to submit offers through the portal and purchasing teams to compare them.</p></article>
+              <article class="case-card case-decision"><h3>Differentiate user roles</h3><p>Prioritize access, tasks and content according to each role’s point of involvement in the process.</p></article>
+              <article class="case-card case-decision"><h3>Prepare the portal to grow</h3><p>Create an architecture that could support additional workflows and features later.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="resultado" class="case-section">
+          <p class="case-section__label">06 · Outcome</p>
+          <div>
+            <h2>We reached the final design and portal prototype.</h2>
+            <p>
+              Over 20 weeks, we defined the scope, architecture and workflows. That work took shape through user stories, task flows, wireframes and final screens.
+            </p>
+            <p>This delivery closed the design stage and provided a foundation for continuing the work with development.</p>
+          </div>
+        </section>
+
+        <section id="aprendizaje" class="case-section">
+          <p class="case-section__label">07 · What I learned</p>
+          <div class="case-highlight-block">
+            <h2>Scope is also a design decision.</h2>
+            <p>
+              The research uncovered many opportunities, but technical constraints required us to prioritize. Returning to the original focus did not mean losing the work we had done: it helped us define a more realistic first version and leave room for the structure to grow.
+            </p>
+          </div>
+        </section>
+
+        <div class="case-next">
+          <p>Would you like to see another project?</p>
+          <a href="telecom-en.html" class="btn btn--stroke btn--large">View Telecom case study</a>
+          <a href="osde-en.html" class="btn btn--stroke btn--large">View OSDE case study</a>
+          <a href="index-en.html#works" class="btn btn--primary btn--large">Back to work</a>
+        </div>
+      </main>
+
+      <footer id="footer" class="s-footer target-section">
+        <div class="row"><div class="column lg-12"><div class="section-header light-on-dark"><h2 class="text-display-title">Let’s work together.</h2></div></div></div>
+        <div class="row s-footer__content">
+          <div class="column xl-6 md-12"><p class="attention-getter">I am available to discuss UX Research, product strategy and collaboration opportunities.</p></div>
+          <div class="column xl-6 md-12"><a class="btn btn--primary btn--large u-fullwidth" href="index-en.html#footer">View contact details</a></div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
